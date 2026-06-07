@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NOVAprotect - La plateforme de confiance</title>
+
+<!-- PWA -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#000000">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="NOVAprotect">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<meta name="description" content="La plateforme qui connecte les clients a des partenaires verifies.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --noir:#000000;
+  --noir2:#08080f;
+  --gris:#0d0d18;
+  --blanc:#f0f0ff;
+  --cyan:#00c8ff;
+  --texte:#606090;
+  --grad:linear-gradient(135deg,#1a6fe8,#8b3ff5);
+  --gradh:linear-gradient(135deg,#00c8ff,#1a6fe8,#8b3ff5);
+  --ft:'Bebas Neue',sans-serif;
+  --fb:'DM Sans',sans-serif;
+}
+html{scroll-behavior:smooth;scroll-padding-top:86px;overflow-x:hidden;max-width:100vw}
+body{background:#000;color:#f0f0ff;font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden;max-width:100vw;width:100%}
+*{max-width:100%}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;width:100%;z-index:100;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding:1rem 5vw;background:rgba(0,0,0,0.93);backdrop-filter:blur(16px);border-bottom:1px solid rgba(139,63,245,0.15);box-sizing:border-box}
+.logo img{height:40px;width:auto;border-radius:8px}
+.nav-links{display:flex;align-items:center;gap:1.35rem;list-style:none;flex-shrink:0}
+.nav-links a{color:#606090;text-decoration:none;font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;transition:color .2s}
+.nav-links a:hover{color:#f0f0ff}
+.nav-cta{background:linear-gradient(135deg,#1a6fe8,#8b3ff5)!important;color:#fff!important;padding:.4rem 1.2rem!important;border-radius:100px!important;font-weight:500!important}
+
+/* NAV SEARCH */
+.nav-search{flex:1;min-width:0;max-width:480px;display:flex;align-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(139,63,245,.25);border-radius:100px;padding:.45rem .45rem .45rem 1.1rem;gap:.5rem;transition:border-color .25s,box-shadow .25s;overflow:hidden}
+.nav-search:focus-within{border-color:rgba(0,200,255,.6);box-shadow:0 0 0 3px rgba(0,200,255,.08)}
+.nav-search input{flex:1;background:transparent;border:none;outline:none;color:#f0f0ff;font:400 .85rem 'DM Sans',sans-serif;min-width:0}
+.nav-search input::placeholder{color:#606090}
+.nav-search button{background:linear-gradient(135deg,#1a6fe8,#8b3ff5);border:none;border-radius:100px;color:#fff;padding:.5rem 1rem;font:.7rem 'DM Sans',sans-serif;font-weight:600;letter-spacing:.05em;text-transform:uppercase;cursor:pointer;white-space:nowrap;transition:opacity .2s}
+.nav-search button:hover{opacity:.85}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:8rem 5vw 4rem;gap:4rem;position:relative;overflow:hidden;width:100%;box-sizing:border-box}
+.hero::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(139,63,245,.08) 0%,transparent 70%);right:-80px;top:50%;transform:translateY(-50%);pointer-events:none}
+.badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(139,63,245,.12);border:1px solid rgba(139,63,245,.35);color:#00c8ff;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;padding:.4rem 1rem;border-radius:100px;margin-bottom:2rem}
+.badge::before{content:'';width:6px;height:6px;background:#00c8ff;border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,7vw,7rem);line-height:.92;color:#f0f0ff;margin-bottom:1rem}
+.grad{background:linear-gradient(135deg,#00c8ff,#1a6fe8,#8b3ff5);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub1{font-size:1.1rem;font-weight:500;color:#f0f0ff;margin-bottom:.8rem;opacity:.9}
+.hero-sub2{font-size:.95rem;color:#606090;max-width:460px;font-weight:300;margin-bottom:2.5rem;line-height:1.8}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn1{background:linear-gradient(135deg,#1a6fe8,#8b3ff5);color:#fff;padding:.9rem 2rem;font-size:.85rem;font-weight:500;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;border-radius:100px;transition:opacity .2s,transform .2s;display:inline-block}
+.btn1:hover{opacity:.82;transform:translateY(-2px)}
+.btn2{color:#606090;padding:.9rem 2rem;font-size:.85rem;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(139,63,245,.3);border-radius:100px;transition:border-color .2s,color .2s;display:inline-block}
+.btn2:hover{border-color:rgba(139,63,245,.7);color:#f0f0ff}
+.hero-proof{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;max-width:560px;margin-top:2rem}
+.hero-proof span{background:rgba(8,8,15,.7);border:1px solid rgba(139,63,245,.14);border-radius:10px;padding:.85rem;color:#606090;font-size:.72rem;line-height:1.35}
+.hero-proof strong{display:block;font-family:'Bebas Neue',sans-serif;font-size:1.75rem;line-height:1;color:#f0f0ff;margin-bottom:.25rem}
+
+/* HERO IMAGE */
+.imgbox{position:relative;height:540px;z-index:1}
+.imgbox-glow{position:absolute;inset:-4px;border-radius:16px;background:linear-gradient(135deg,#1a6fe8,#8b3ff5);opacity:.18;z-index:-1;filter:blur(28px)}
+.img-main{width:100%;height:100%;object-fit:cover;border-radius:12px;filter:brightness(.75)}
+.img-small{position:absolute;bottom:-1.5rem;left:-1.5rem;width:150px;height:190px;object-fit:cover;border-radius:8px;border:3px solid #000}
+.img-badge{position:absolute;top:1.5rem;right:1.5rem;background:linear-gradient(135deg,#1a6fe8,#8b3ff5);color:#fff;font-family:'Bebas Neue',sans-serif;font-size:.9rem;letter-spacing:.1em;padding:.5rem 1rem;border-radius:100px}
+
+/* MARQUEE */
+.marquee-outer{overflow:hidden;border-top:1px solid rgba(139,63,245,.15);border-bottom:1px solid rgba(139,63,245,.15);padding:.9rem 0;background:#0d0d18;width:100%;box-sizing:border-box}
+.marquee-inner{display:flex;width:max-content;animation:scroll 25s linear infinite}
+.marquee-inner span{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:.15em;color:#606090;padding:0 2rem;white-space:nowrap}
+.marquee-inner span.hl{background:linear-gradient(135deg,#00c8ff,#1a6fe8,#8b3ff5);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* SECTIONS */
+section{padding:7rem 5vw;width:100%;box-sizing:border-box;overflow-x:hidden}
+section:not(.hero):not(#cta)>*{max-width:1180px;margin-left:auto;margin-right:auto;width:100%;box-sizing:border-box}
+.slabel{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;background:linear-gradient(135deg,#00c8ff,#1a6fe8,#8b3ff5);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:1rem;display:inline-block}
+.stitle{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,5vw,4.5rem);line-height:1;color:#f0f0ff;margin-bottom:1.5rem}
+.sdesc{color:#606090;max-width:560px;font-weight:300;line-height:1.8}
+
+/* MARKETPLACE */
+#marketplace{background:#000;border-bottom:1px solid rgba(139,63,245,.12)}
+.market-head{display:grid;grid-template-columns:1.2fr .8fr;gap:3rem;align-items:end;margin-bottom:3rem}
+.market-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.market-card{display:block;min-height:230px;background:#08080f;border:1px solid rgba(139,63,245,.14);border-radius:12px;padding:1.6rem;text-decoration:none;position:relative;overflow:hidden;transition:border-color .25s,transform .25s,box-shadow .25s,background .25s}
+.market-card::after{content:'';position:absolute;inset:auto -20% -55% -20%;height:70%;background:radial-gradient(circle,rgba(0,200,255,.12),transparent 62%);opacity:.7;transition:opacity .25s}
+.market-card:hover{border-color:rgba(0,200,255,.4);transform:translateY(-4px);box-shadow:0 18px 38px rgba(0,0,0,.28);background:#0d0d18}
+.market-card:hover::after{opacity:1}
+.market-card span{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:rgba(0,200,255,.1);border:1px solid rgba(0,200,255,.22);color:#00c8ff;font-family:'Bebas Neue',sans-serif;font-size:1.15rem;margin-bottom:1.4rem}
+.market-card h3{font-family:'Bebas Neue',sans-serif;font-size:2rem;line-height:1;color:#f0f0ff;margin-bottom:.75rem}
+.market-card p{color:#606090;font-size:.84rem;font-weight:300;line-height:1.7;position:relative;z-index:1}
+
+/* OFFRES */
+#offres{background:#0d0d18;border-top:1px solid rgba(139,63,245,.12)}
+
+/* POURQUOI */
+#pourquoi{background:#000}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;margin-top:4rem}
+.mission-list{list-style:none;display:flex;flex-direction:column;gap:1rem}
+.m-item{display:flex;align-items:flex-start;gap:1.2rem;padding:1.4rem;background:#0d0d18;border:1px solid rgba(139,63,245,.1);border-radius:12px;transition:border-color .3s}
+.m-item:hover{border-color:rgba(139,63,245,.35)}
+.m-icon{width:44px;height:44px;border-radius:10px;background:rgba(139,63,245,.12);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+.m-item h4{font-size:.92rem;font-weight:600;color:#f0f0ff;margin-bottom:.2rem}
+.m-item p{font-size:.82rem;color:#606090;font-weight:300}
+.stats-side{display:flex;flex-direction:column;gap:1rem}
+.side-img{width:100%;height:240px;object-fit:cover;border-radius:12px;filter:brightness(.75);border:1px solid rgba(139,63,245,.15)}
+.stats-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.stat{background:#0d0d18;border:1px solid rgba(139,63,245,.12);border-radius:10px;padding:1.5rem}
+.stat-n{font-family:'Bebas Neue',sans-serif;font-size:2.6rem;background:linear-gradient(135deg,#00c8ff,#1a6fe8,#8b3ff5);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:.3rem}
+.stat-l{font-size:.78rem;color:#606090;font-weight:300}
+.stat.wide{grid-column:span 2}
+
+/* PARTENAIRES */
+#partenaires{background:#0d0d18}
+.p-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:3rem}
+.p-card{background:#08080f;border:1px solid rgba(139,63,245,.1);border-radius:12px;padding:1.8rem;display:flex;align-items:center;gap:1rem;transition:border-color .3s,transform .3s}
+.p-card:hover{border-color:rgba(139,63,245,.4);transform:translateY(-3px)}
+.p-icon{width:48px;height:48px;border-radius:10px;background:rgba(26,111,232,.12);display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.p-card h4{font-size:.9rem;font-weight:500;color:#f0f0ff;margin-bottom:.2rem}
+.p-card p{font-size:.78rem;color:#606090;font-weight:300}
+
+/* CATALOGUE */
+#catalogue-section{background:#000}
+.catalogue-head{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;margin-bottom:2rem}
+.search-box{width:min(100%,420px);position:relative}
+.search-box input{width:100%;background:#08080f;border:1px solid rgba(139,63,245,.22);border-radius:100px;color:#f0f0ff;font:500 .9rem var(--fb);padding:1rem 1.3rem 1rem 3rem;outline:none;transition:border-color .25s,box-shadow .25s}
+.search-box input:focus{border-color:rgba(0,200,255,.65);box-shadow:0 0 0 4px rgba(0,200,255,.08)}
+.search-box span{position:absolute;left:1.15rem;top:50%;transform:translateY(-50%);color:#00c8ff;font-size:1rem}
+.promo-slider{width:100%;max-width:100vw;overflow:hidden;margin:0;border-top:1px solid rgba(139,63,245,.15);border-bottom:1px solid rgba(139,63,245,.15);background:#08080f;position:relative;box-sizing:border-box}
+.promo-track{display:flex;transition:transform .6s cubic-bezier(.4,0,.2,1)}
+.promo-slide{min-width:100%;position:relative;height:280px;overflow:hidden;flex-shrink:0}
+.promo-slide img{width:100%;height:100%;object-fit:cover;filter:brightness(.55)}
+.promo-content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:2.5rem 5vw;background:linear-gradient(90deg,rgba(0,0,0,.7) 0%,transparent 70%)}
+.promo-tag{display:inline-block;background:linear-gradient(135deg,#1a6fe8,#8b3ff5);color:#fff;font-size:.65rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:.3rem .75rem;border-radius:100px;margin-bottom:.75rem;width:fit-content}
+.promo-content h3{font-family:"Bebas Neue",sans-serif;font-size:clamp(1.8rem,4vw,3rem);color:#fff;line-height:1;margin-bottom:.5rem}
+.promo-content p{color:rgba(255,255,255,.75);font-size:.85rem;max-width:420px;margin-bottom:1rem}
+.promo-cta{display:inline-flex;align-items:center;gap:.4rem;background:linear-gradient(135deg,#1a6fe8,#8b3ff5);color:#fff;text-decoration:none;border-radius:100px;padding:.55rem 1.2rem;font-size:.75rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;width:fit-content;transition:opacity .2s}
+.promo-cta:hover{opacity:.85}
+.promo-dots{position:absolute;bottom:.75rem;left:50%;transform:translateX(-50%);display:flex;gap:.4rem}
+.promo-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.35);transition:background .3s,transform .3s;cursor:pointer}
+.promo-dot.active{background:#00c8ff;transform:scale(1.3)}
+.promo-arrows{position:absolute;top:50%;transform:translateY(-50%);width:100%;display:flex;justify-content:space-between;padding:0 1rem;pointer-events:none}
+.promo-arrow{pointer-events:all;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.15);color:#fff;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;transition:background .2s}
+.promo-arrow:hover{background:rgba(26,111,232,.7)}
+
+.discover{overflow:hidden;margin:2.5rem 0 3rem;border-top:1px solid rgba(139,63,245,.12);border-bottom:1px solid rgba(139,63,245,.12);background:#0d0d18;width:100%;box-sizing:border-box}
+.discover-track{display:flex;width:max-content;animation:partnerScroll 32s linear infinite}
+.discover-item{display:flex;align-items:center;gap:.7rem;min-width:230px;padding:1rem 1.5rem;color:#f0f0ff;border-right:1px solid rgba(139,63,245,.12)}
+.discover-dot{width:9px;height:9px;border-radius:50%;background:#00c8ff;box-shadow:0 0 18px rgba(0,200,255,.55)}
+.discover-item strong{font-size:.84rem;font-weight:600}
+.discover-item small{display:block;color:#606090;font-size:.7rem;margin-top:.1rem}
+@keyframes partnerScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.catalogue-tools{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:1.3rem;flex-wrap:wrap;width:100%;box-sizing:border-box;overflow:hidden}
+.filter-pills{display:flex;gap:.6rem;flex-wrap:wrap;width:100%;box-sizing:border-box}
+.filter-pill{border:1px solid rgba(139,63,245,.25);background:#08080f;color:#606090;border-radius:100px;padding:.55rem 1rem;font:600 .72rem var(--fb);letter-spacing:.07em;text-transform:uppercase;cursor:pointer;transition:color .2s,border-color .2s,background .2s,transform .2s}
+.filter-pill:hover,.filter-pill.active{color:#fff;border-color:rgba(0,200,255,.5);background:rgba(0,200,255,.08);transform:translateY(-1px)}
+.result-count{font-size:.8rem;color:#606090}
+.catalogue-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;width:100%;box-sizing:border-box}
+.product-card{background:#08080f;border:1px solid rgba(139,63,245,.12);border-radius:12px;overflow:hidden;min-height:100%;display:flex;flex-direction:column;transition:border-color .25s,transform .25s,background .25s,box-shadow .25s}
+.product-card:hover{border-color:rgba(139,63,245,.45);transform:translateY(-4px);background:#0d0d18;box-shadow:0 18px 38px rgba(0,0,0,.26)}
+.product-img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;filter:brightness(.78) saturate(.9);background:#0d0d18}
+.product-body{padding:1.2rem;display:flex;flex-direction:column;gap:.75rem;flex:1}
+.product-card h3{font-family:'Bebas Neue',sans-serif;font-size:1.55rem;line-height:1;color:#f0f0ff}
+.product-meta{display:flex;flex-wrap:wrap;gap:.45rem}
+.product-meta span{font-size:.68rem;color:#606090;background:rgba(139,63,245,.1);border:1px solid rgba(139,63,245,.12);border-radius:100px;padding:.25rem .55rem}
+.product-card p{color:#606090;font-size:.78rem;font-weight:300;line-height:1.55;margin-top:auto}
+.product-contact{display:flex;align-items:center;gap:.4rem;align-self:flex-start;background:linear-gradient(135deg,#1a6fe8,#8b3ff5);color:#fff;text-decoration:none;border-radius:100px;padding:.65rem 1.1rem;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;transition:opacity .2s,transform .2s}
+.product-contact::before{content:"💬";font-size:.85rem}
+.partner-verified{display:inline-flex;align-items:center;gap:.3rem;background:rgba(46,229,157,.1);border:1px solid rgba(46,229,157,.25);color:#2ee59d;font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.25rem .6rem;border-radius:100px}
+.partner-verified::before{content:"✓";font-weight:900}
+.category-card-filter{cursor:pointer;background:#08080f;border:1px solid rgba(139,63,245,.18);border-radius:12px;padding:1.2rem;display:flex;flex-direction:column;align-items:center;gap:.5rem;text-align:center;transition:border-color .25s,transform .25s,background .25s}
+.category-card-filter:hover,.category-card-filter.active{border-color:rgba(0,200,255,.5);background:rgba(0,200,255,.06);transform:translateY(-3px)}
+.category-card-filter .cat-icon{font-size:1.6rem}
+.category-card-filter .cat-nom{font-size:.72rem;font-weight:600;color:#f0f0ff;letter-spacing:.04em}
+.category-card-filter .cat-count{font-size:.65rem;color:#606090}
+.categories-bar{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:.75rem;margin:2rem 0 2.5rem;width:100%;box-sizing:border-box}
+.search-live-count{font-size:.75rem;color:#00c8ff;font-weight:600;margin-left:.5rem}
+.product-contact:hover{opacity:.86;transform:translateY(-1px)}
+.empty-state{display:none;border:1px dashed rgba(139,63,245,.35);border-radius:12px;padding:2rem;text-align:center;color:#606090;background:#08080f}
+
+/* REPARATION */
+#reparation{background:#0d0d18}
+.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:3rem}
+.service-card{background:#08080f;border:1px solid rgba(139,63,245,.12);border-radius:12px;padding:1.5rem;transition:border-color .25s,transform .25s}
+.service-card:hover{border-color:rgba(0,200,255,.35);transform:translateY(-4px)}
+.service-card div{width:46px;height:46px;border-radius:11px;background:rgba(0,200,255,.09);display:flex;align-items:center;justify-content:center;font-size:1.25rem;margin-bottom:1rem}
+.service-card h3{font-family:'Bebas Neue',sans-serif;font-size:1.45rem;color:#f0f0ff;margin-bottom:.45rem}
+.service-card p{font-size:.8rem;color:#606090;font-weight:300;line-height:1.6}
+
+/* ABONNEMENTS */
+.plans-block{margin-top:3rem}
+.plans-title{display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;margin-bottom:1.2rem;padding-bottom:1rem;border-bottom:1px solid rgba(139,63,245,.14)}
+.plans-title span{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:.04em;color:#f0f0ff}
+.plans-title p{max-width:460px;color:#606090;font-size:.84rem;font-weight:300;line-height:1.7}
+.plans-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;align-items:stretch}
+.plan-card{background:#08080f;border:1px solid rgba(139,63,245,.14);border-radius:12px;padding:1.5rem;position:relative;display:flex;flex-direction:column;gap:1rem;transition:border-color .25s,transform .25s,box-shadow .25s,background .25s}
+.plan-card:hover{border-color:rgba(0,200,255,.38);transform:translateY(-4px);box-shadow:0 18px 38px rgba(0,0,0,.26);background:#0d0d18}
+.plan-card.is-popular{border-color:rgba(139,63,245,.48)}
+.plan-badge{position:absolute;top:1rem;right:1rem;background:linear-gradient(135deg,#1a6fe8,#8b3ff5);color:#fff;border-radius:100px;padding:.28rem .7rem;font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;font-weight:700}
+.plan-type{font-size:.68rem;color:#00c8ff;letter-spacing:.14em;text-transform:uppercase}
+.plan-card h3{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:#f0f0ff;line-height:1}
+.plan-price{display:flex;align-items:flex-end;gap:.35rem}
+.plan-price strong{font-family:'Bebas Neue',sans-serif;font-size:2.8rem;line-height:.9;background:linear-gradient(135deg,#00c8ff,#1a6fe8,#8b3ff5);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.plan-price span{color:#606090;font-size:.8rem;margin-bottom:.2rem}
+.plan-desc{color:#606090;font-size:.82rem;font-weight:300;line-height:1.65}
+.plan-list{list-style:none;display:flex;flex-direction:column;gap:.55rem;margin-top:.2rem}
+.plan-list li{color:rgba(240,240,255,.82);font-size:.8rem;font-weight:300;display:flex;gap:.55rem}
+.plan-list li::before{content:'OK';color:#00c8ff;font-size:.62rem;font-weight:800;background:rgba(0,200,255,.11);border-radius:4px;padding:.05rem .28rem;height:max-content;margin-top:.1rem}
+.plan-cta{margin-top:auto;display:inline-flex;justify-content:center;text-decoration:none;background:linear-gradient(135deg,#1a6fe8,#8b3ff5);color:#fff;border-radius:100px;padding:.75rem 1rem;font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;transition:opacity .2s,transform .2s}
+.plan-cta:hover{opacity:.86;transform:translateY(-1px)}
+
+#clientPlans .plan-card{background:linear-gradient(180deg,rgba(0,200,255,.045),#08080f 34%)}
+#partnerPlans .plan-card{background:linear-gradient(180deg,rgba(139,63,245,.06),#08080f 34%)}
+
+/* COMMENT */
+#comment{background:#000}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;margin-top:4rem}
+.step{background:#0d0d18;border:1px solid rgba(139,63,245,.1);border-radius:12px;padding:1.8rem 1.2rem;text-align:center;transition:border-color .3s,transform .3s}
+.step:hover{border-color:rgba(139,63,245,.4);transform:translateY(-4px)}
+.step-n{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#1a6fe8,#8b3ff5);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:#fff;margin:0 auto 1rem}
+.step h4{font-size:.85rem;font-weight:500;color:#f0f0ff;margin-bottom:.5rem;line-height:1.4}
+.step p{font-size:.75rem;color:#606090;font-weight:300;line-height:1.6}
+
+/* CAMPAGNES */
+#campagnes{background:#0d0d18}
+.camp-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:4rem}
+.camp-card{background:#08080f;border:1px solid rgba(139,63,245,.1);border-radius:12px;overflow:hidden;transition:border-color .3s}
+.camp-card:hover{border-color:rgba(139,63,245,.4)}
+.camp-img{width:100%;height:250px;object-fit:cover;display:block;filter:brightness(.45) saturate(.7);transition:filter .4s}
+.camp-card:hover .camp-img{filter:brightness(.6) saturate(.9)}
+.camp-body{padding:2rem}
+.camp-tag{display:inline-block;background:rgba(0,200,255,.1);color:#00c8ff;font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;padding:.3rem .8rem;border-radius:100px;border:1px solid rgba(0,200,255,.2);margin-bottom:1rem}
+.camp-body h3{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:#f0f0ff;margin-bottom:.8rem;line-height:1}
+.camp-body p{color:#606090;font-size:.88rem;font-weight:300;line-height:1.7}
+
+/* VISION */
+#vision{background:#000;text-align:center;border-top:1px solid rgba(139,63,245,.12)}
+.vision-box{max-width:800px;margin:0 auto}
+.vision-logo{width:88px;height:88px;object-fit:cover;margin:0 auto 2rem;display:block;opacity:.9;border-radius:12px}
+.vision-q{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,3.8rem);line-height:1.1;color:#f0f0ff;margin:1.5rem 0}
+.vision-q em{background:linear-gradient(135deg,#00c8ff,#1a6fe8,#8b3ff5);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:normal}
+
+/* CTA */
+#cta{position:relative;overflow:hidden;min-height:500px;display:flex;align-items:center}
+.cta-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.18) saturate(.5)}
+.cta-glow{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(139,63,245,.2) 0%,transparent 70%)}
+.cta-inner{position:relative;z-index:1;text-align:center;width:100%;padding:6rem 5vw}
+.cta-inner h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,6vw,5rem);color:#f0f0ff;line-height:1;margin-bottom:1rem}
+.cta-inner h2 span{background:linear-gradient(135deg,#00c8ff,#1a6fe8,#8b3ff5);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cta-inner p{color:rgba(240,240,255,.55);font-size:1rem;font-weight:300;margin-bottom:2.5rem;max-width:500px;margin-left:auto;margin-right:auto}
+.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+/* FOOTER */
+footer{background:#000;border-top:1px solid rgba(139,63,245,.12);padding:2.5rem 5vw;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem}
+.footer-logo{height:36px;width:auto;opacity:.85;border-radius:8px;object-fit:cover}
+.footer-links{display:flex;gap:1.5rem;list-style:none}
+.footer-links a{font-size:.78rem;color:#606090;text-decoration:none;letter-spacing:.05em;text-transform:uppercase;transition:color .2s}
+.footer-links a:hover{color:#f0f0ff}
+footer p{font-size:.78rem;color:#606090}
+
+/* FADE */
+.fu{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.fu.on{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .promo-slide{height:200px}
+  .promo-content h3{font-size:1.4rem}
+  .promo-content p{font-size:.78rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  nav{align-items:flex-start;flex-direction:column;padding:.85rem 5vw}
+  .nav-links{width:100%;display:flex;gap:.65rem;overflow-x:auto;padding-bottom:.2rem;scrollbar-width:none}
+  .nav-links::-webkit-scrollbar{display:none}
+  .nav-links a{display:block;background:#08080f;border:1px solid rgba(139,63,245,.18);border-radius:100px;padding:.42rem .75rem;font-size:.68rem}
+  .nav-cta{padding:.42rem .85rem!important}
+  .nav-search{max-width:100%;width:100%}
+  .hero{grid-template-columns:1fr;padding-top:8rem;min-height:auto;padding-bottom:2rem}
+  .imgbox{height:220px}
+  .split,.camp-grid,.market-head{grid-template-columns:1fr}
+  .market-grid{grid-template-columns:1fr}
+  .catalogue-grid,.services-grid,.plans-grid{grid-template-columns:repeat(2,1fr)}
+  .plan-card{padding:1rem;gap:.65rem}
+  .plan-price strong{font-size:2rem}
+  .plan-card h3{font-size:1.5rem}
+  .plan-list{display:none}
+  .plans-title{align-items:flex-start;flex-direction:column}
+  .catalogue-head{align-items:flex-start;flex-direction:column}
+  .p-grid{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  section{padding:3.5rem 5vw}
+}
+@media(max-width:600px){
+  .promo-slide{height:160px}
+  .promo-content{padding:1.2rem 5vw}
+  .promo-content h3{font-size:1.15rem}
+  .promo-tag{font-size:.58rem;padding:.2rem .55rem}
+  .promo-cta{font-size:.65rem;padding:.4rem .85rem}
+  nav{gap:.75rem}
+  .logo img{height:34px}
+  .hero{padding-top:7.5rem;padding-bottom:1.5rem}
+  .hero-proof{grid-template-columns:1fr}
+  .hero-btns .btn1,.hero-btns .btn2,.cta-btns .btn1,.cta-btns .btn2{width:100%;text-align:center}
+  .p-grid,.steps,.stats-row,.catalogue-grid,.services-grid,.plans-grid{grid-template-columns:1fr}
+  .plan-card{padding:.85rem;gap:.5rem}
+  .plan-price strong{font-size:1.8rem}
+  .plan-card h3{font-size:1.3rem}
+  .plan-desc{font-size:.75rem}
+  .stat.wide{grid-column:span 1}
+  .search-box input{padding:.9rem 1rem .9rem 2.7rem}
+  .discover-item{min-width:210px}
+  .product-card{min-height:auto}
+  .market-card{min-height:190px}
+  footer{align-items:flex-start;flex-direction:column}
+  .footer-links{align-items:flex-start;flex-direction:column;gap:.7rem}
+}
+
+
+.partner-gallery{display:flex;gap:.5rem;overflow-x:auto;scrollbar-width:none;margin-bottom:.75rem;border-radius:8px;overflow:hidden}
+.partner-gallery::-webkit-scrollbar{display:none}
+.partner-gallery img{width:160px;height:120px;object-fit:cover;flex-shrink:0;border-radius:8px;filter:brightness(.85);transition:filter .3s}
+.partner-gallery img:hover{filter:brightness(1)}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo"><img src="logo.jpg" alt="NOVAprotect"></a>
+  <div class="nav-search">
+    <input id="navSearch" type="search" placeholder="Rechercher un partenaire, produit, service..." autocomplete="off">
+    <button onclick="document.getElementById('catalogue-section').scrollIntoView({behavior:'smooth'})">Rechercher</button>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#marketplace">Marketplace</a></li>
+    <li><a href="#catalogue-section">Catalogue</a></li>
+    <li><a href="#offres">Abonnements</a></li>
+    <li><a href="#partenaires">Partenaires</a></li>
+    <li><a href="#reparation">Reparation</a></li>
+    <li><a href="#pourquoi">Mission</a></li>
+    <li><a href="#comment">Comment ca marche</a></li>
+    <li><a href="https://wa.me/33635107150?text=Bonjour%20NOVAprotect%2C%20je%20souhaite%20rejoindre%20le%20r%C3%A9seau." target="_blank" rel="noopener" class="nav-cta">Rejoindre</a></li>
+  </ul>
+</nav>
+
+
+<section class="hero">
+  <div>
+    <div class="badge">Plateforme de confiance verifiee</div>
+    <h1>NOVA<br><span class="grad">PROTECT</span></h1>
+    <p class="hero-sub1">La plateforme qui connecte les clients a des partenaires verifies.</p>
+    <p class="hero-sub2">Achetez, reparez, commandez et collaborez en toute confiance grace a notre reseau de partenaires selectionnes et authentifies.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/33635107150?text=Bonjour%20NOVAprotect%2C%20je%20souhaite%20en%20savoir%20plus." target="_blank" rel="noopener" class="btn1">Contacter Nova</a>
+      <a href="https://www.tiktok.com/@novaprotectoff?_r=1&_t=ZN-96oeM8VEhpG" target="_blank" rel="noopener" class="btn2">Decouvrir nos partenaires</a>
+    </div>
+    <div class="hero-proof">
+      <span><strong>100%</strong> verification manuelle</span>
+      <span><strong>0</strong> tolerance arnaques</span>
+      <span><strong>+500</strong> mises en relation</span>
+    </div>
+  </div>
+  <div class="imgbox fu">
+    <div class="imgbox-glow"></div>
+    <img class="img-main" src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80&fit=crop" alt="Partenaires verifies">
+    <img class="img-small" src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&q=80&fit=crop" alt="Confiance">
+    <div class="img-badge">Verifie</div>
+  </div>
+
+<div class="promo-slider" id="promoSlider">
+  <div class="promo-track" id="promoTrack">
+    <div class="promo-slide">
+      <img src="saveurs-afrique-promo.jpg" onerror="this.src='https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=1200&q=80&fit=crop'" alt="Saveurs d Afrique">
+      <div class="promo-content">
+        <span class="promo-tag">🔥 Promo — 70 MAD seulement</span>
+        <h3>Saveurs d'Afrique Casablanca</h3>
+        <p>Thiebboudiene, Attieke, Poulet Braise — plat complet a 70 MAD. Livraison sur Casablanca.</p>
+        <a class="promo-cta" href="https://wa.me/33635107150?text=Bonjour%20Saveurs%20d'Afrique%2C%20je%20viens%20de%20NOVAprotect%20et%20je%20souhaite%20commander%20le%20plat%20a%2070%20MAD." target="_blank">Commander — 70 MAD</a>
+      </div>
+    </div>
+    <div class="promo-slide">
+      <img src="chez-zozo-promo.jpg" onerror="this.src='https://images.unsplash.com/photo-1556742208-999815fca738?w=1200&q=80&fit=crop'" alt="Chez Zozo">
+      <div class="promo-content">
+        <span class="promo-tag">🍽 Nouveau — Chez Zozo</span>
+        <h3>Restaurant Chez Zozo</h3>
+        <p>Sejt, Sell, Neekh — specialites senegalaises et ivoiriennes. Livraison negociee a la commande.</p>
+        <a class="promo-cta" href="https://wa.me/33635107150?text=Bonjour%20Chez%20Zozo%2C%20je%20viens%20de%20NOVAprotect%20et%20je%20souhaite%20commander." target="_blank">Commander maintenant</a>
+      </div>
+    </div>
+    <div class="promo-slide">
+      <img src="afro-market.jpg" onerror="this.src='https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1200&q=80&fit=crop'" alt="Afro Market">
+      <div class="promo-content">
+        <span class="promo-tag">🌿 Produits Exotiques d'Afrique</span>
+        <h3>Le Meilleur de l'Afrique Chez Vous</h3>
+        <p>Tubercules, fruits exotiques, epices, huiles naturelles — 100% authentique, livraison rapide.</p>
+        <a class="promo-cta" href="https://wa.me/33635107150?text=Bonjour%20Afro%20Market%2C%20je%20viens%20de%20NOVAprotect%20et%20je%20souhaite%20commander." target="_blank">Commander maintenant</a>
+      </div>
+    </div>
+    <div class="promo-slide">
+      <img src="https://images.unsplash.com/photo-1556742208-999815fca738?w=1200&q=80&fit=crop" alt="Promo 4">
+      <div class="promo-content">
+        <span class="promo-tag">✅ Partenaire Premium</span>
+        <h3>Rejoignez le Reseau Nova</h3>
+        <p>Visibilite, credibilite, clients qualifies. Plans a partir de 49,99 MAD/mois.</p>
+        <a class="promo-cta" href="#offres">Voir les offres</a>
+      </div>
+    </div>
+  </div>
+  <div class="promo-arrows">
+    <button class="promo-arrow" onclick="promoMove(-1)">&#8592;</button>
+    <button class="promo-arrow" onclick="promoMove(1)">&#8594;</button>
+  </div>
+  <div class="promo-dots" id="promoDots"></div>
+</div>
+
+<div class="marquee-outer">
+  <div class="marquee-inner">
+    <span>Confiance</span><span class="hl"> &diams; </span>
+    <span>Verification</span><span class="hl"> &diams; </span>
+    <span>Securite</span><span class="hl"> &diams; </span>
+    <span>Partenaires</span><span class="hl"> &diams; </span>
+    <span>Reseau</span><span class="hl"> &diams; </span>
+    <span>Credibilite</span><span class="hl"> &diams; </span>
+    <span>Excellence</span><span class="hl"> &diams; </span>
+    <span>Confiance</span><span class="hl"> &diams; </span>
+    <span>Verification</span><span class="hl"> &diams; </span>
+    <span>Securite</span><span class="hl"> &diams; </span>
+    <span>Partenaires</span><span class="hl"> &diams; </span>
+    <span>Reseau</span><span class="hl"> &diams; </span>
+    <span>Credibilite</span><span class="hl"> &diams; </span>
+    <span>Excellence</span><span class="hl"> &diams; </span>
+  </div>
+</div>
+
+
+
+<section id="catalogue-section">
+  <div class="catalogue-head">
+    <div>
+      <p class="slabel fu">Catalogue partenaires</p>
+      <h2 class="stitle fu">Produits disponibles</h2>
+      <p class="sdesc fu">Un catalogue simple, rapide et pret a accueillir les produits et services de partenaires locaux verifies.</p>
+    </div>
+    <label class="search-box fu" for="search">
+      <span>&#128269;</span>
+      <input id="search" type="search" placeholder="Rechercher un produit ou service" autocomplete="off">
+    </label>
+  </div>
+  <div class="discover fu" aria-label="Partenaires a decouvrir">
+    <div class="discover-track" id="discoverTrack"></div>
+  </div>
+  <div class="catalogue-tools fu">
+    <div class="filter-pills" id="filterPills"></div>
+    <p class="result-count" id="resultCount">Chargement du catalogue...</p>
+  </div>
+  <div class="categories-bar" id="categoriesBar"></div>
+  <div class="catalogue-grid" id="catalogue"></div>
+  <div class="empty-state" id="emptyState">Aucun resultat. Essayez un autre produit, partenaire ou categorie.</div>
+</section>
+
+<section id="offres">
+  <p class="slabel fu">Marketplace locale</p>
+  <h2 class="stitle fu">Abonnements NovaProtect</h2>
+  <p class="sdesc fu">Des offres simples pour les clients qui cherchent des partenaires fiables et pour les professionnels qui veulent vendre avec plus de confiance.</p>
+  <div class="plans-block fu">
+    <div class="plans-title"><span>Clients</span><p>Acces rapide au catalogue, aux partenaires et aux recommandations NovaProtect.</p></div>
+    <div class="plans-grid" id="clientPlans"></div>
+  </div>
+  <div class="plans-block fu">
+    <div class="plans-title"><span>Partenaires</span><p>Visibilite locale, fiche entreprise et integration progressive au catalogue marketplace.</p></div>
+    <div class="plans-grid" id="partnerPlans"></div>
+  </div>
+</section>
+
+<section id="partenaires">
+  <p class="slabel fu">Qui peut rejoindre</p>
+  <h2 class="stitle fu">Partenaires cibles</h2>
+  <p class="sdesc fu">Nova Protect accueille tous les professionnels serieux qui souhaitent renforcer leur credibilite.</p>
+  <div class="p-grid">
+    <div class="p-card fu"><div class="p-icon">&#128241;</div><div><h4>Boutiques d'accessoires mobiles</h4><p>Coques, verres, cables et accessoires certifies</p></div></div>
+    <div class="p-card fu"><div class="p-icon">&#128295;</div><div><h4>Techniciens de reparation</h4><p>Reparation smartphone, tablette et electronique</p></div></div>
+    <div class="p-card fu"><div class="p-icon">&#127869;</div><div><h4>Restaurants</h4><p>Etablissements de restauration verifies</p></div></div>
+    <div class="p-card fu"><div class="p-icon">&#128666;</div><div><h4>Services de livraison</h4><p>Coursiers et services de livraison locaux fiables</p></div></div>
+    <div class="p-card fu"><div class="p-icon">&#127978;</div><div><h4>Commercants locaux</h4><p>Toutes categories de commerce de proximite</p></div></div>
+    <div class="p-card fu"><div class="p-icon">&#128187;</div><div><h4>Plateformes sans boutique physique</h4><p>Vendeurs en ligne, dropshippers et e-commercants</p></div></div>
+    <div class="p-card fu"><div class="p-icon">&#127912;</div><div><h4>Salons de tatouage</h4><p>Artistes tatoueurs verifies, hygiene et projets personnalises</p></div></div>
+    <div class="p-card fu"><div class="p-icon">&#128135;</div><div><h4>Salons de coiffure femme</h4><p>Coiffure, brushing, soins capillaires et prestations beaute</p></div></div>
+    <div class="p-card fu"><div class="p-icon">&#127805;</div><div><h4>Marches exotiques</h4><p>Banane, manioc, huiles, savon noir et produits specialises</p></div></div>
+    <div class="p-card fu"><div class="p-icon">&#128142;</div><div><h4>Bijouteries</h4><p>Bijoux, accessoires et articles selectionnes</p></div></div>
+    <div class="p-card fu"><div class="p-icon">&#9992;</div><div><h4>Agences de voyage</h4><p>Reservations, conseils voyage et services touristiques fiables</p></div></div>
+  </div>
+</section>
+
+<section id="reparation">
+  <p class="slabel fu">Services extensibles</p>
+  <h2 class="stitle fu">Services de reparation</h2>
+  <p class="sdesc fu">Une base claire pour ajouter ensuite les techniciens, les zones couvertes et les delais par partenaire.</p>
+  <div class="services-grid">
+    <div class="service-card fu"><div>&#128241;</div><h3>Ecran smartphone</h3><p>Diagnostic, remplacement d'ecran et verification tactile pour les modeles courants.</p></div>
+    <div class="service-card fu"><div>&#128267;</div><h3>Batterie</h3><p>Controle autonomie, remplacement batterie et conseils d'entretien apres intervention.</p></div>
+    <div class="service-card fu"><div>&#128295;</div><h3>Connecteur charge</h3><p>Nettoyage, test de charge et remplacement du port si necessaire.</p></div>
+    <div class="service-card fu"><div>&#128225;</div><h3>Diagnostic rapide</h3><p>Identification des pannes courantes avant orientation vers un partenaire verifie.</p></div>
+  </div>
+</section>
+
+<section id="pourquoi">
+  <p class="slabel fu">Notre raison d'etre</p>
+  <h2 class="stitle fu">Pourquoi Nova Protect ?</h2>
+  <div class="split">
+    <div>
+      <p class="sdesc fu" style="margin-bottom:2.5rem">Nova Protect selectionne et authentifie des partenaires fiables afin d'aider les clients a acheter, reparer ou commander en toute securite.</p>
+      <ul class="mission-list">
+        <li class="m-item fu"><div class="m-icon">&#128683;</div><div><h4>Reduire les arnaques</h4><p>Nous verifions chaque partenaire pour proteger les clients des vendeurs douteux.</p></div></li>
+        <li class="m-item fu"><div class="m-icon">&#127942;</div><div><h4>Valoriser les professionnels serieux</h4><p>Un badge Nova Protect, c'est la reconnaissance d'un travail de qualite.</p></div></li>
+        <li class="m-item fu"><div class="m-icon">&#129309;</div><div><h4>Faciliter la mise en relation</h4><p>Clients et partenaires se connectent simplement et en confiance.</p></div></li>
+        <li class="m-item fu"><div class="m-icon">&#127760;</div><div><h4>Construire un reseau durable</h4><p>Un ecosysteme solide ou chaque acteur beneficie de la confiance collective.</p></div></li>
+      </ul>
+    </div>
+    <div class="stats-side">
+      <img class="side-img fu" src="https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=700&q=80&fit=crop" alt="Reseau de confiance">
+      <div class="stats-row">
+        <div class="stat fu"><div class="stat-n">100%</div><div class="stat-l">Partenaires verifies manuellement</div></div>
+        <div class="stat fu"><div class="stat-n">0</div><div class="stat-l">Tolerance pour les arnaques</div></div>
+        <div class="stat wide fu"><div class="stat-n">+500</div><div class="stat-l">Clients mis en relation chaque mois</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="comment">
+  <p class="slabel fu">Processus simple</p>
+  <h2 class="stitle fu">Comment ca marche ?</h2>
+  <p class="sdesc fu">En 5 etapes simples, devenez un partenaire certifie Nova Protect.</p>
+  <div class="steps">
+    <div class="step fu"><div class="step-n">1</div><h4>Rejoindre Nova Protect</h4><p>Le partenaire s'inscrit et soumet son activite sur la plateforme.</p></div>
+    <div class="step fu"><div class="step-n">2</div><h4>Verification de l'activite</h4><p>Notre equipe verifie et authentifie l'activite du partenaire.</p></div>
+    <div class="step fu"><div class="step-n">3</div><h4>Badge de confiance</h4><p>Il recoit son badge Nova Protect officiel, gage de credibilite.</p></div>
+    <div class="step fu"><div class="step-n">4</div><h4>Orientation des clients</h4><p>Les clients sont orientes vers les partenaires verifies du reseau.</p></div>
+    <div class="step fu"><div class="step-n">5</div><h4>Visibilite accrue</h4><p>Sa visibilite augmente grace au reseau et aux campagnes Nova.</p></div>
+  </div>
+</section>
+
+<section id="campagnes">
+  <p class="slabel fu">Nos engagements</p>
+  <h2 class="stitle fu">Nos campagnes</h2>
+  <p class="sdesc fu">Nova Protect prend position pour defendre clients et professionnels serieux.</p>
+  <div class="camp-grid">
+    <div class="camp-card fu">
+      <img class="camp-img" src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80&fit=crop" alt="Stop aux arnaques">
+      <div class="camp-body"><span class="camp-tag">Campagne 01</span><h3>Stop aux arnaques</h3><p>Nous sensibilisons nos clients aux vendeurs non verifies qui nuisent a la confiance dans le commerce local et en ligne.</p></div>
+    </div>
+    <div class="camp-card fu">
+      <img class="camp-img" src="https://images.unsplash.com/photo-1556742208-999815fca738?w=800&q=80&fit=crop" alt="The war of low-cost">
+      <div class="camp-body"><span class="camp-tag">Campagne 02</span><h3>The War of Low-Cost</h3><p>Un prix accessible ne doit jamais signifier une qualite douteuse. Nous defendons les professionnels serieux qui meritent d'etre reconnus.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="vision">
+  <div class="vision-box">
+    <img class="vision-logo fu" src="logo.jpg" alt="NOVAprotect">
+    <p class="slabel fu">Notre vision</p>
+    <p class="vision-q fu">Nova Protect construit un ecosysteme ou<br><em>clients et professionnels</em><br>collaborent en toute confiance.</p>
+    <p class="sdesc fu" style="margin:0 auto;text-align:center">Des milliers de clients sont victimes d'arnaques chaque annee. Choisissez un partenaire Nova Protect verifie, certifie, fiable.</p>
+  </div>
+</section>
+
+<section id="cta">
+  <img class="cta-bg" src="https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=1600&q=80&fit=crop" alt="Nova Protect">
+  <div class="cta-glow"></div>
+  <div class="cta-inner">
+    <h2>Rejoignez le reseau<br><span>Nova Protect</span></h2>
+    <p>Devenez un partenaire certifie et connectez-vous a des milliers de clients qui cherchent des professionnels de confiance.</p>
+    <div class="cta-btns">
+      <a href="https://wa.me/33635107150?text=Bonjour%20NOVAprotect%2C%20je%20souhaite%20devenir%20partenaire%20certifi%C3%A9." target="_blank" rel="noopener" class="btn1">Contacter Nova sur WhatsApp</a>
+      <a href="https://www.tiktok.com/@novaprotectoff?_r=1&_t=ZN-96oeM8VEhpG" target="_blank" rel="noopener" class="btn2">Voir nos partenaires sur TikTok</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <img class="footer-logo" src="logo.jpg" alt="NOVAprotect">
+  <ul class="footer-links">
+    <li><a href="#marketplace">Marketplace</a></li>
+    <li><a href="#catalogue-section">Catalogue</a></li>
+    <li><a href="#offres">Abonnements</a></li>
+    <li><a href="#partenaires">Partenaires</a></li>
+    <li><a href="#reparation">Reparation</a></li>
+    <li><a href="#pourquoi">Mission</a></li>
+    <li><a href="https://wa.me/33635107150?text=Bonjour%20NOVAprotect%2C%20j%27ai%20une%20question." target="_blank" rel="noopener">Contact</a></li>
+  </ul>
+  <p>2025 NOVAprotect &mdash; Tous droits reserves.</p>
+</footer>
+
+<script>
+const NOVA_DATA = {
+  categories: [
+    { id: "telephones", nom: "Telephones", icon: "📱", description: "Smartphones neufs, occasions selectionnees et boutiques mobiles." },
+    { id: "accessoires", nom: "Accessoires mobiles", icon: "🔌", description: "Coques, verres trempes, cables, chargeurs et supports." },
+    { id: "reparation", nom: "Reparation", icon: "🛠", description: "Techniciens pour ecran, batterie, charge et diagnostic." },
+    { id: "tatouage", nom: "Salon de tatouage", icon: "✒", description: "Artistes verifies, hygiene, projets personnalises." },
+    { id: "coiffure-femme", nom: "Coiffure femme", icon: "✂", description: "Coiffure, soins, brushing et prestations beaute." },
+    { id: "marche-exotique", nom: "Marche exotique", icon: "🌿", description: "Banane, manioc, huiles, savon noir et produits specialises." },
+    { id: "bijouterie", nom: "Bijouterie", icon: "◆", description: "Bijoux, accessoires et articles selectionnes." },
+    { id: "voyage", nom: "Agence de voyage", icon: "✈", description: "Reservations, conseils et services touristiques fiables." },
+    { id: "decoration-lumineuse", nom: "Decoration lumineuse", icon: "💡", description: "Ambiances LED, evenements, vitrines et decoration." },
+    { id: "restaurants", nom: "Restaurants", icon: "🍽", description: "Etablissements verifies et commandes locales." },
+    { id: "services-locaux", nom: "Services locaux", icon: "🤝", description: "Livraison, assistance, conseil et prestations de proximite." },
+    { id: "audiovisuel", nom: "Audiovisuel & Créateurs", icon: "🎥", description: "Cameras, objectifs, stabilisateurs, micros et accessoires pour createurs de contenu." }
+,
+    { id: "smartphones", nom: "Smartphones & Accessoires", icon: "📱", description: "Vente de smartphones, accessoires et solutions mobiles." },
+    { id: "cosmetique", nom: "Cosmetique & Beaute", icon: "💄", description: "Produits cosmetiques, soins de beaute et parfumerie." },
+    { id: "restauration-africaine", nom: "Restauration Africaine", icon: "🍛", description: "Specialites africaines, plats traditionnels et livraison sur Casablanca." }
+  ],
+  entreprises: [
+    { id: "nova-mobile-center", nom: "Nova Mobile Center", categorie: "telephones", plan: "premium", ville: "Casablanca", description: "Boutique specialisee en smartphones verifies et accessoires mobiles.", whatsapp: "https://wa.me/33635107150", socials: "@novaprotectoff", catalogue: ["iphone-13", "samsung-a55", "pack-protection"] },
+    { id: "protect-access-store", nom: "Protect Access Store", categorie: "accessoires", plan: "smart", ville: "Rabat", description: "Coques, verres trempes et chargeurs selectionnes pour usage quotidien.", whatsapp: "https://wa.me/33635107150", socials: "@novaprotectoff", catalogue: ["coque-antichoc", "verre-ceramique", "chargeur-rapide"] },
+    { id: "fix-phone-plus", nom: "Fix Phone Plus", categorie: "reparation", plan: "premium", ville: "Marrakech", description: "Technicien mobile pour remplacement d'ecran, batterie et diagnostic.", whatsapp: "https://wa.me/33635107150", socials: "@novaprotectoff", catalogue: ["reparation-ecran", "batterie-smartphone", "diagnostic-mobile"] },
+    { id: "nova-tattoo-studio", nom: "Nova Tattoo Studio", categorie: "tatouage", plan: "premium", ville: "Casablanca", description: "Salon de tatouage verifie pour projets minimalistes et personnalises.", whatsapp: "https://wa.me/33635107150", socials: "@novaprotectoff", catalogue: ["tatouage-minimaliste", "tatouage-personnalise"] },
+    { id: "beauty-nova-hair", nom: "Beauty Nova Hair", categorie: "coiffure-femme", plan: "smart", ville: "Agadir", description: "Salon de coiffure femme pour soins capillaires, brushing et coiffures.", whatsapp: "https://wa.me/33635107150", socials: "@novaprotectoff", catalogue: ["brushing", "soin-capillaire", "coiffure-evenement"] },
+    { id: "afro-market-select", nom: "Afro Market Select", categorie: "marche-exotique", plan: "smart", ville: "Casablanca", description: "Le meilleur de l'Afrique chez vous en un clic. Tubercules, fruits exotiques, legumes, epices, huiles et bien plus encore. 100% naturel, authentique, livraison rapide.", whatsapp: "https://wa.me/33635107150", socials: "@novaprotectoff", photo: "afro-market.jpg", badges: ["🌿 100% Naturel", "🚚 Livraison rapide", "⭐ Qualite Premium"], catalogue: ["manioc", "savon-noir", "huile-naturelle", "afro-fruits", "afro-epices", "afro-tubercules"] },
+    { id: "bijoux-lumiere", nom: "Bijoux Lumiere", categorie: "bijouterie", plan: "smart", ville: "Tanger", description: "Bijouterie de proximite avec articles selectionnes et conseils clients.", whatsapp: "https://wa.me/33635107150", socials: "@novaprotectoff", catalogue: ["bracelet", "collier", "bague"] },
+    { id: "nova-travel-agency", nom: "Nova Travel Agency", categorie: "voyage", plan: "premium", ville: "Casablanca", description: "Agence de voyage pour reservations, accompagnement et offres touristiques.", whatsapp: "https://wa.me/33635107150", socials: "@novaprotectoff", catalogue: ["reservation-vol", "sejour-weekend", "assistance-visa"] },
+    { id: "lumi-deco-pro", nom: "Lumi Deco Pro", categorie: "decoration-lumineuse", plan: "basic", ville: "Rabat", description: "Decoration lumineuse pour boutiques, evenements et interieurs.", whatsapp: "https://wa.me/33635107150", socials: "@novaprotectoff", catalogue: ["ruban-led", "enseigne-lumineuse", "deco-evenement"] },
+    { id: "cam-sept", nom: "Cam Sept", categorie: "audiovisuel", plan: "premium", ville: "Casablanca", description: "Boutique specialisee dans la vente d'equipements et accessoires audiovisuels pour createurs de contenu, videastes et photographes.", whatsapp: "https://wa.me/212615563032", socials: "@cam_sept", instagram: "@cam_sept", adresse: "Bld TADDERT M15, Les Jardins de Bali Oasis, Casablanca", photo: "cam-sept.jpg.jpeg", catalogue: ["cam-cameras", "cam-objectifs", "cam-trepied", "cam-stabilisateur", "cam-micro", "cam-led", "cam-carte-memoire", "cam-batteries", "cam-accessoires"] },
+    { id: "dr-ink-tattoo", nom: "Dr Ink Tattoo", categorie: "tatouage", plan: "premium", ville: "Casablanca", description: "Studio de tatouage proposant des creations personnalisees et des retouches professionnelles.", whatsapp: "https://wa.me/212629298654", socials: "@drinktattoo", adresse: "Medina, Casablanca", catalogue: ["drink-personnalise", "drink-retouche", "drink-conseil"] },
+    { id: "sarr-iphone", nom: "Sarr iPhone", categorie: "smartphones", plan: "smart", ville: "Casablanca", description: "Vente et services autour des iPhone et smartphones.", whatsapp: "https://wa.me/212656973616", socials: "@sarriphone", adresse: "Medina, Casablanca", catalogue: ["sarr-iphone-prod", "sarr-smartphone", "sarr-reparation"] },
+    { id: "fajri-iphone", nom: "Fajri iPhone", categorie: "smartphones", plan: "basic", ville: "Casablanca", description: "Services et produits lies aux smartphones.", whatsapp: "https://wa.me/212600526780", socials: "@fajriiphone", adresse: "Casablanca", catalogue: ["fajri-smartphone", "fajri-reparation", "fajri-accessoires"] },
+    { id: "floral-cosmetique", nom: "Floral Cosmetique", categorie: "cosmetique", plan: "basic", ville: "Casablanca", description: "Vente de produits cosmetiques et de beaute.", whatsapp: "https://wa.me/212661526192", socials: "@floralcosmetique", adresse: "Casablanca", catalogue: ["floral-cosmetiques", "floral-soins"] },
+    { id: "saveurs-afrique", nom: "Saveurs d'Afrique Casablanca", categorie: "restauration-africaine", plan: "premium", ville: "Casablanca", description: "Specialites africaines preparees avec soin et disponibles en livraison sur Casablanca. Attieke, Thiebboudiene, Poulet Braise et bien plus.", whatsapp: "https://wa.me/33635107150", socials: "@saveurs_afrique_casa", adresse: "Casablanca — Livraison disponible", photo: "saveurs-afrique-promo.jpg", promo: "🔥 Promo — Plat à 70 MAD", badges: ["🚚 Livraison Casablanca", "🥡 Emporter", "📅 Reservation possible"], catalogue: ["sa-attieke-poisson", "sa-attieke-poulet", "sa-thieb-poisson", "sa-thieb-poulet", "sa-poulet-braise", "sa-alloco", "sa-riz-gras", "sa-jus"] },
+    { id: "chez-zozo", nom: "Chez Zozo", categorie: "restauration-africaine", plan: "premium", ville: "Casablanca", description: "Restaurant africain authentique — Sett, Sell, Neekh. Specialites senegalaises et ivoiriennes preparees avec passion. Livraison negociee a la commande.", whatsapp: "https://wa.me/33635107150", socials: "@chezzozo", adresse: "Casablanca — Livraison negociee", photo: "chez-zozo-promo.jpg", badges: ["🚚 Livraison negociee", "🥡 Emporter", "⭐ Sejt - Sell - Neekh"], catalogue: ["zozo-thieb", "zozo-attieke", "zozo-poulet", "zozo-alloco", "zozo-jus"] },
+    { id: "saveur-fiable", nom: "Saveur Fiable", categorie: "restaurants", plan: "smart", ville: "Casablanca", description: "Restaurant partenaire verifie pour commandes et reservations locales.", whatsapp: "https://wa.me/33635107150", socials: "@novaprotectoff", catalogue: ["menu-midi", "commande-famille"] }
+  ],
+  produits: [
+    { id: "iphone-13", nom: "iPhone 13 verifie", type: "produit", prix: "Sur demande", description: "Smartphone controle par partenaire Nova Protect." },
+    { id: "samsung-a55", nom: "Samsung Galaxy A55", type: "produit", prix: "Sur demande", description: "Modele recent propose par boutique mobile verifiee." },
+    { id: "pack-protection", nom: "Pack protection mobile", type: "produit", prix: "A partir de 99 DH", description: "Coque, verre trempe et installation." },
+    { id: "coque-antichoc", nom: "Coque antichoc", type: "produit", prix: "A partir de 49 DH", description: "Protection smartphone pour usage quotidien." },
+    { id: "verre-ceramique", nom: "Verre ceramique", type: "produit", prix: "A partir de 39 DH", description: "Protection ecran renforcee." },
+    { id: "chargeur-rapide", nom: "Chargeur rapide", type: "produit", prix: "A partir de 79 DH", description: "Chargeur selectionne et teste." },
+    { id: "reparation-ecran", nom: "Remplacement ecran", type: "service", prix: "Sur diagnostic", description: "Diagnostic puis remplacement selon modele." },
+    { id: "batterie-smartphone", nom: "Remplacement batterie", type: "service", prix: "Sur diagnostic", description: "Controle autonomie et installation." },
+    { id: "diagnostic-mobile", nom: "Diagnostic mobile", type: "service", prix: "A partir de 50 DH", description: "Identification rapide des pannes courantes." },
+    { id: "tatouage-minimaliste", nom: "Tatouage minimaliste", type: "service", prix: "Sur devis", description: "Projet discret, propre et personnalise." },
+    { id: "tatouage-personnalise", nom: "Projet tatouage personnalise", type: "service", prix: "Sur devis", description: "Creation selon brief client." },
+    { id: "brushing", nom: "Brushing", type: "service", prix: "Sur demande", description: "Prestation coiffure femme." },
+    { id: "soin-capillaire", nom: "Soin capillaire", type: "service", prix: "Sur demande", description: "Soin adapte au type de cheveux." },
+    { id: "coiffure-evenement", nom: "Coiffure evenement", type: "service", prix: "Sur devis", description: "Coiffure pour ceremonies et sorties." },
+    { id: "afro-fruits", nom: "Fruits exotiques", type: "produit", prix: "Selon arrivage", description: "Mangue, ananas, banane plantain, noix de coco et plus." },
+    { id: "afro-epices", nom: "Epices & Condiments", type: "produit", prix: "Selon format", description: "Epices africaines, condiments et assaisonnements." },
+    { id: "afro-tubercules", nom: "Tubercules", type: "produit", prix: "Selon arrivage", description: "Manioc, igname, patate douce et autres tubercules." },
+    { id: "manioc", nom: "Manioc", type: "produit", prix: "Selon arrivage", description: "Produit exotique selectionne." },
+    { id: "savon-noir", nom: "Savon noir", type: "produit", prix: "Selon format", description: "Produit naturel de soin." },
+    { id: "huile-naturelle", nom: "Huiles naturelles", type: "produit", prix: "Selon format", description: "Huiles specialisees pour soin et cuisine." },
+    { id: "bracelet", nom: "Bracelet", type: "produit", prix: "Sur demande", description: "Bijou selectionne." },
+    { id: "collier", nom: "Collier", type: "produit", prix: "Sur demande", description: "Article de bijouterie." },
+    { id: "bague", nom: "Bague", type: "produit", prix: "Sur demande", description: "Bijou disponible selon stock." },
+    { id: "reservation-vol", nom: "Reservation vol", type: "service", prix: "Sur demande", description: "Recherche et reservation accompagnee." },
+    { id: "sejour-weekend", nom: "Sejour weekend", type: "service", prix: "Sur devis", description: "Offres courtes durees." },
+    { id: "assistance-visa", nom: "Assistance visa", type: "service", prix: "Sur devis", description: "Aide a la preparation du dossier." },
+    { id: "ruban-led", nom: "Ruban LED", type: "produit", prix: "Sur demande", description: "Decoration lumineuse flexible." },
+    { id: "enseigne-lumineuse", nom: "Enseigne lumineuse", type: "service", prix: "Sur devis", description: "Creation pour boutique et evenement." },
+    { id: "deco-evenement", nom: "Decoration evenement", type: "service", prix: "Sur devis", description: "Ambiance lumineuse pour evenements." },
+    { id: "cam-cameras", nom: "Cameras", type: "produit", prix: "Sur demande", description: "Cameras pour createurs de contenu, videastes et photographes." },
+    { id: "cam-objectifs", nom: "Objectifs", type: "produit", prix: "Sur demande", description: "Objectifs compatibles toutes marques." },
+    { id: "cam-trepied", nom: "Trépieds", type: "produit", prix: "Sur demande", description: "Trépieds stables pour photo et video." },
+    { id: "cam-stabilisateur", nom: "Stabilisateurs", type: "produit", prix: "Sur demande", description: "Gimbals et stabilisateurs pour tournage fluide." },
+    { id: "cam-micro", nom: "Microphones", type: "produit", prix: "Sur demande", description: "Micros pour vlog, interview et studio." },
+    { id: "cam-led", nom: "Éclairages LED", type: "produit", prix: "Sur demande", description: "Panneaux LED et anneaux lumineux pour createurs." },
+    { id: "cam-carte-memoire", nom: "Cartes mémoire", type: "produit", prix: "Sur demande", description: "Cartes SD et CFexpress haute vitesse." },
+    { id: "cam-batteries", nom: "Batteries & Chargeurs", type: "produit", prix: "Sur demande", description: "Batteries et chargeurs pour equipements audiovisuels." },
+    { id: "cam-accessoires", nom: "Accessoires de tournage", type: "produit", prix: "Sur demande", description: "Tout le necessaire pour vos projets de creation de contenu." },
+    { id: "drink-personnalise", nom: "Tatouages personnalises", type: "service", prix: "Sur devis", description: "Creation sur mesure selon votre projet artistique." },
+    { id: "drink-retouche", nom: "Retouches", type: "service", prix: "Sur devis", description: "Retouche et correction de tatouages existants." },
+    { id: "drink-conseil", nom: "Conseils artistiques", type: "service", prix: "Gratuit", description: "Consultation pour definir votre projet de tatouage." },
+    { id: "sarr-iphone-prod", nom: "iPhone", type: "produit", prix: "Sur demande", description: "iPhone neufs et occasions verifies." },
+    { id: "sarr-smartphone", nom: "Smartphones", type: "produit", prix: "Sur demande", description: "Smartphones toutes marques." },
+    { id: "sarr-reparation", nom: "Reparation iPhone", type: "service", prix: "Sur diagnostic", description: "Reparation ecran, batterie et diagnostic iPhone." },
+    { id: "fajri-smartphone", nom: "Smartphones", type: "produit", prix: "Sur demande", description: "Smartphones neufs et occasions." },
+    { id: "fajri-reparation", nom: "Reparation", type: "service", prix: "Sur diagnostic", description: "Reparation et diagnostic smartphones." },
+    { id: "fajri-accessoires", nom: "Accessoires", type: "produit", prix: "Sur demande", description: "Accessoires mobiles et protection." },
+    { id: "floral-cosmetiques", nom: "Produits cosmetiques", type: "produit", prix: "Sur demande", description: "Gamme complete de cosmetiques et soins." },
+    { id: "floral-soins", nom: "Soins de beaute", type: "service", prix: "Sur demande", description: "Soins visage, corps et beaute." },
+    { id: "sa-attieke-poisson", nom: "Attieke Poisson", type: "plat", prix: "Sur demande", description: "Attieke accompagne de poisson frais grille." },
+    { id: "sa-attieke-poulet", nom: "Attieke Poulet", type: "plat", prix: "Sur demande", description: "Attieke accompagne de poulet savoureux." },
+    { id: "sa-thieb-poisson", nom: "Thiebboudiene au Poisson", type: "plat", prix: "Sur demande", description: "Riz au poisson senegalais, plat traditionnel." },
+    { id: "sa-thieb-poulet", nom: "Thiebboudiene au Poulet", type: "plat", prix: "Sur demande", description: "Riz au poulet senegalais, saveurs authentiques." },
+    { id: "sa-poulet-braise", nom: "Poulet Braise", type: "plat", prix: "Sur demande", description: "Poulet braise a la braise, tendre et parfume." },
+    { id: "sa-alloco", nom: "Alloco", type: "plat", prix: "Sur demande", description: "Banane plantain frite, accompagnement traditionnel." },
+    { id: "sa-riz-gras", nom: "Riz Gras", type: "plat", prix: "Sur demande", description: "Riz gras cuisine aux epices africaines." },
+    { id: "sa-jus", nom: "Jus Naturels", type: "boisson", prix: "Sur demande", description: "Jus de fruits naturels et frais." },
+    { id: "zozo-thieb", nom: "Thiebboudiene", type: "plat", prix: "Sur demande", description: "Riz au poisson ou poulet senegalais, plat signature." },
+    { id: "zozo-attieke", nom: "Attieke", type: "plat", prix: "Sur demande", description: "Attieke poisson ou poulet, specialite ivoirienne." },
+    { id: "zozo-poulet", nom: "Poulet Braise", type: "plat", prix: "Sur demande", description: "Poulet braise aux epices africaines." },
+    { id: "zozo-alloco", nom: "Alloco", type: "plat", prix: "Sur demande", description: "Banane plantain frite, accompagnement." },
+    { id: "zozo-jus", nom: "Jus Naturels", type: "boisson", prix: "Sur demande", description: "Jus de fruits frais et naturels." },
+    { id: "menu-midi", nom: "Menu midi", type: "service", prix: "Sur demande", description: "Offre restaurant du jour." },
+    { id: "commande-famille", nom: "Commande famille", type: "service", prix: "Sur demande", description: "Commande groupe ou famille." }
+  ],
+  plans: {
+    clients: [
+      { nom: "Gratuit", prix: "0 DH", description: "Acces aux categories et partenaires verifies." },
+      { nom: "Client Plus", prix: "29 DH", description: "Recommandations prioritaires, alertes promotions et meilleurs profils." },
+      { nom: "Client Premium", prix: "59 DH", description: "Accompagnement personnalise et offres reservees." }
+    ],
+    partenaires: [
+      { nom: "Basic", prix: "49,99 MAD", description: "Presence dans l'annuaire Nova Protect avec fiche simple et badge verifie." },
+      { nom: "Smart", prix: "149,99 MAD", description: "Meilleure visibilite, badge renforce, fiche enrichie et mise en avant." },
+      { nom: "Smart Plus", prix: "229,99 MAD", description: "Priorite renforcee, galerie photos, catalogue complet et promotion active." },
+      { nom: "Premium", prix: "299,99 MAD", description: "Top priorite dans les resultats, slider publicitaire, catalogue illimite et suivi client." }
+    ]
+  }
+};
+
+function planRank(plan) {
+  return { premium: 0, smart: 1, basic: 2 }[String(plan).toLowerCase()] ?? 3;
+}
+function labelForPlan(plan) {
+  const key = String(plan).toLowerCase();
+  return key.charAt(0).toUpperCase() + key.slice(1);
+}
+function normalizeText(value) {
+  return String(value || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
+(function initHome() {
+  const data = NOVA_DATA;
+
+  // Discover track (partenaires scrolling)
+  const track = document.getElementById("discoverTrack");
+  if (track) {
+    const items = [...data.entreprises, ...data.entreprises].map(p => `
+      <div class="discover-item">
+        <span class="discover-dot"></span>
+        <div><strong>${p.nom}</strong><small>${p.ville}</small></div>
+      </div>`).join("");
+    track.innerHTML = items;
+  }
+
+  // Filter pills (categories)
+  const pills = document.getElementById("filterPills");
+  const catalogue = document.getElementById("catalogue");
+  const resultCount = document.getElementById("resultCount");
+  const emptyState = document.getElementById("emptyState");
+  const searchInput = document.getElementById("search");
+
+  let activeFilter = "tous";
+
+  const categories = ["tous", ...new Set(data.entreprises.map(e => e.categorie))];
+  if (pills) {
+    pills.innerHTML = categories.map(cat => {
+      const label = cat === "tous" ? "Tous" : (data.categories.find(c => c.id === cat)?.nom || cat);
+      return `<button class="filter-pill${cat === "tous" ? " active" : ""}" data-cat="${cat}">${label}</button>`;
+    }).join("");
+
+    pills.addEventListener("click", e => {
+      const btn = e.target.closest(".filter-pill");
+      if (!btn) return;
+      pills.querySelectorAll(".filter-pill").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      activeFilter = btn.dataset.cat;
+      render();
+    });
+  }
+
+  function render() {
+    const query = normalizeText((searchInput?.value || "").trim());
+    let partners = [...data.entreprises];
+    if (activeFilter && activeFilter !== "tous") partners = partners.filter(p => p.categorie === activeFilter);
+    if (query) partners = partners.filter(p => normalizeText(`${p.nom} ${p.description} ${p.ville} ${p.categorie}`).includes(query));
+    partners = partners.sort((a, b) => planRank(a.plan) - planRank(b.plan));
+
+    if (catalogue) {
+      catalogue.innerHTML = partners.map(p => {
+        const prods = data.produits.filter(pr => p.catalogue.includes(pr.id)).slice(0, 4);
+        const isPremium = p.plan === "premium";
+        return `<div class="product-card">
+          ${p.gallery && p.gallery.length ? `<div class="partner-gallery">${p.gallery.map(img => `<img src="${img}" alt="${p.nom}" onerror="this.style.display='none'">`).join("")}</div>` : p.photo ? `<img class="product-img" src="${p.photo}" alt="${p.nom}" onerror="this.style.display='none'">` : ""}
+          <div class="product-body">
+            <div class="product-meta" style="margin-bottom:.3rem">
+              <span style="background:${isPremium ? "linear-gradient(135deg,#1a6fe8,#8b3ff5)" : p.plan==="smart" ? "rgba(0,200,255,.15)" : "rgba(255,255,255,.07)"};color:${isPremium ? "#fff" : p.plan==="smart" ? "#00c8ff" : "#aaa"};border:none;font-weight:700">${labelForPlan(p.plan)}</span>
+              <span>📍 ${p.ville}</span>
+            </div>
+            ${isPremium || p.plan==="smart" ? '<span class="partner-verified">Partenaire verifie Nova</span>' : ""}
+            <h3 style="margin-top:.5rem">${p.nom}</h3>
+            <p>${p.description}</p>
+            <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin:.5rem 0">
+              ${prods.map(pr => `<span style="font-size:.68rem;background:#0d0d18;border:1px solid rgba(139,63,245,.18);border-radius:100px;padding:.18rem .55rem;color:#8888aa">▸ ${pr.nom}</span>`).join("")}
+            </div>
+            ${p.adresse && p.adresse !== "Casablanca" && p.adresse !== "A compléter" ? `<div style="font-size:.72rem;color:#606090;margin-bottom:.25rem">🗺 ${p.adresse}</div>` : ""}
+            ${p.promo ? `<div style="display:inline-block;background:linear-gradient(135deg,#ff5c7a,#ff8c00);color:#fff;font-size:.7rem;font-weight:800;letter-spacing:.06em;padding:.3rem .75rem;border-radius:100px;margin-bottom:.4rem">${p.promo}</div>` : ""}
+            ${p.badges ? `<div style="display:flex;flex-wrap:wrap;gap:.3rem;margin-bottom:.4rem">${p.badges.map(b => `<span style="font-size:.65rem;background:rgba(46,229,157,.08);border:1px solid rgba(46,229,157,.2);color:#2ee59d;border-radius:100px;padding:.18rem .5rem">${b}</span>`).join("")}</div>` : ""}
+            ${p.instagram ? `<div style="font-size:.72rem;color:#8b3ff5;margin-bottom:.4rem">📸 ${p.instagram}</div>` : ""}
+            <a class="product-contact" href="${p.whatsapp}?text=${encodeURIComponent('Bonjour ' + p.nom + ' 👋\n\nJe vous contacte via la plateforme NOVAprotect ✅\n\nJe souhaite en savoir plus sur vos services.\n\n📌 Ref. NOVAprotect | ' + p.ville)}" target="_blank" rel="noopener" onclick="trackContact('${p.id}','${p.nom}')">Contacter sur WhatsApp</a>
+          </div>
+        </div>`;
+      }).join("");
+    }
+
+    if (resultCount) resultCount.innerHTML = `<span style="color:#f0f0ff;font-weight:600">${partners.length}</span> partenaire(s) trouve(s)`;
+    if (emptyState) emptyState.style.display = partners.length ? "none" : "block";
+  }
+
+  // Grille catégories cliquables
+  const categoriesBar = document.getElementById("categoriesBar");
+  if (categoriesBar) {
+    const cats = ["tous", ...new Set(data.entreprises.map(e => e.categorie))];
+    categoriesBar.innerHTML = cats.map(cat => {
+      const catObj = data.categories.find(c => c.id === cat);
+      const count = cat === "tous" ? data.entreprises.length : data.entreprises.filter(e => e.categorie === cat).length;
+      const label = cat === "tous" ? "Tous" : (catObj?.nom || cat);
+      const icon = cat === "tous" ? "🔍" : (catObj?.icon || "▸");
+      return `<div class="category-card-filter${cat === "tous" ? " active" : ""}" data-cat="${cat}">
+        <span class="cat-icon">${icon}</span>
+        <span class="cat-nom">${label}</span>
+        <span class="cat-count">${count} partenaire${count > 1 ? "s" : ""}</span>
+      </div>`;
+    }).join("");
+
+    categoriesBar.addEventListener("click", e => {
+      const card = e.target.closest(".category-card-filter");
+      if (!card) return;
+      categoriesBar.querySelectorAll(".category-card-filter").forEach(c => c.classList.remove("active"));
+      card.classList.add("active");
+      // Sync avec filter pills
+      if (pills) {
+        pills.querySelectorAll(".filter-pill").forEach(b => {
+          b.classList.toggle("active", b.dataset.cat === card.dataset.cat);
+        });
+      }
+      activeFilter = card.dataset.cat;
+      render();
+    });
+  }
+
+  searchInput?.addEventListener("input", render);
+
+  // Nav search bar
+  const navSearchInput = document.getElementById("navSearch");
+  navSearchInput?.addEventListener("input", () => {
+    activeFilter = 'tous'; if (categoriesBar) categoriesBar.querySelectorAll('.category-card-filter').forEach(c => c.classList.toggle('active', c.dataset.cat === 'tous')); if (pills) pills.querySelectorAll('.filter-pill').forEach(b => b.classList.toggle('active', b.dataset.cat === 'tous')); if (searchInput) searchInput.value = navSearchInput.value;
+    document.getElementById('catalogue-section').scrollIntoView({behavior:'smooth'});
+    render();
+    // Reset category filter to "tous" on nav search
+    if (categoriesBar) { categoriesBar.querySelectorAll(".category-card-filter").forEach(c => c.classList.toggle("active", c.dataset.cat === "tous")); }
+    activeFilter = "tous";
+  });
+  navSearchInput?.addEventListener("keydown", e => {
+    if (e.key === "Enter") {
+      activeFilter = 'tous'; if (categoriesBar) categoriesBar.querySelectorAll('.category-card-filter').forEach(c => c.classList.toggle('active', c.dataset.cat === 'tous')); if (pills) pills.querySelectorAll('.filter-pill').forEach(b => b.classList.toggle('active', b.dataset.cat === 'tous')); if (searchInput) searchInput.value = navSearchInput.value;
+      document.getElementById('catalogue-section').scrollIntoView({behavior:'smooth'});
+      render();
+    }
+  });
+  render();
+
+  // Plans clients
+  const clientPlans = document.getElementById("clientPlans");
+  if (clientPlans) {
+    clientPlans.innerHTML = data.plans.clients.map((plan, i) => `
+      <div class="plan-card${i === 1 ? " is-popular" : ""}">
+        ${i === 1 ? '<span class="plan-badge">Populaire</span>' : ""}
+        <p class="plan-type">Client</p>
+        <h3>${plan.nom}</h3>
+        <div class="plan-price"><strong>${plan.prix}</strong><span>/mois</span></div>
+        <p class="plan-desc">${plan.description}</p>
+        <a class="plan-cta" href="https://wa.me/33635107150?text=Bonjour%2C%20je%20souhaite%20l'offre%20${encodeURIComponent(plan.nom)}." target="_blank" rel="noopener">Choisir cette offre</a>
+      </div>`).join("");
+  }
+
+  // Plans partenaires
+  const partnerPlans = document.getElementById("partnerPlans");
+  if (partnerPlans) {
+    const popularIdx = 2;
+    partnerPlans.innerHTML = data.plans.partenaires.map((plan, i) => `
+      <div class="plan-card${i === popularIdx ? " is-popular" : ""}">
+        ${i === popularIdx ? '<span class="plan-badge">Populaire</span>' : ""}
+        <p class="plan-type">Partenaire</p>
+        <h3>${plan.nom}</h3>
+        <div class="plan-price"><strong>${plan.prix}</strong><span>/mois</span></div>
+        <p class="plan-desc">${plan.description}</p>
+        <ul class="plan-list">
+          <li>Badge Nova Protect officiel</li>
+          <li>Fiche partenaire verifiee</li>
+          ${i >= 1 ? "<li>Visibilite renforcee</li>" : ""}
+          ${i >= 2 ? "<li>Galerie photos & catalogue</li>" : ""}
+          ${i >= 3 ? "<li>Slider publicitaire inclus</li><li>Suivi client prioritaire</li>" : ""}
+        </ul>
+        <a class="plan-cta" href="https://wa.me/33635107150?text=Bonjour%2C%20je%20souhaite%20le%20plan%20partenaire%20${encodeURIComponent(plan.nom)}." target="_blank" rel="noopener">Rejoindre</a>
+      </div>`).join("");
+  }
+
+  // Slider publicitaire
+  (function initPromoSlider() {
+    const track = document.getElementById('promoTrack');
+    const dotsContainer = document.getElementById('promoDots');
+    if (!track) return;
+    const slides = track.querySelectorAll('.promo-slide');
+    let current = 0;
+    const total = slides.length;
+
+    // Créer les dots
+    if (dotsContainer) {
+      slides.forEach((_, i) => {
+        const dot = document.createElement('div');
+        dot.className = 'promo-dot' + (i === 0 ? ' active' : '');
+        dot.addEventListener('click', () => goTo(i));
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    function goTo(n) {
+      current = (n + total) % total;
+      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      if (dotsContainer) {
+        dotsContainer.querySelectorAll('.promo-dot').forEach((d, i) => d.classList.toggle('active', i === current));
+      }
+    }
+
+    window.promoMove = (dir) => goTo(current + dir);
+
+    // Auto-play toutes les 3 secondes
+    setInterval(() => goTo(current + 1), 3000);
+  })();
+
+  // Fade-in animation
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("on"); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll(".fu").forEach(el => observer.observe(el));
+})();
+</script>
+
+<script>
+function trackContact(id, nom) {
+  const now = new Date();
+  const dateStr = now.toLocaleDateString('fr-FR') + ' a ' + now.toLocaleTimeString('fr-FR', {hour:'2-digit', minute:'2-digit'});
+
+  // Enregistrement local
+  const log = JSON.parse(localStorage.getItem('nova_contacts') || '[]');
+  log.push({ id, nom, date: now.toISOString() });
+  localStorage.setItem('nova_contacts', JSON.stringify(log));
+
+  // Message de notification vers ton WhatsApp Nova
+  const notifMsg = encodeURIComponent(
+    '📊 NOVA PROTECT — Nouveau contact' + '\n\n' +
+    '🏪 Partenaire : ' + nom + '\n' +
+    '📅 Date : ' + dateStr + '\n\n' +
+    '✅ Un client vient de contacter ce partenaire via NOVAprotect.'
+  );
+
+  // Ouvre la notification vers ton numero apres 800ms
+  setTimeout(() => {
+    window.open('https://wa.me/33635107150?text=' + notifMsg, '_blank');
+  }, 800);
+}
+</script>
+
+<script>
+  if ('serviceWorker' in navigator && location.hostname !== 'www.claudeusercontent.com') {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/NovaProtect/sw.js')
+        .then((reg) => console.log('SW enregistre :', reg.scope))
+        .catch((err) => console.warn('SW echec :', err));
+    });
+  }
+</script>
+
+</body>
+</html>
