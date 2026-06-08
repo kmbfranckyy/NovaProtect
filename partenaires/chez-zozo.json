@@ -1,0 +1,52 @@
+{
+  "id": "chez-zozo",
+  "nom": "Chez Zozo",
+  "categorie": "restauration-africaine",
+  "plan": "premium",
+  "ville": "Casablanca",
+  "description": "Specialites senegalaises et ivoiriennes. Sejt, Sell, Neekh. Livraison negociee.",
+  "whatsapp": "https://wa.me/33635107150",
+  "photo": "chez-zozo-promo.jpg",
+  "badges": [
+    "🚚 Livraison négociée",
+    "🥡 Emporter",
+    "⭐ Sejt - Sell - Neekh"
+  ],
+  "produits": [
+    {
+      "id": "zozo-thieb",
+      "nom": "Thiéboudiène",
+      "type": "plat",
+      "prix": "Sur demande",
+      "description": "Riz au poisson ou poulet senegalais."
+    },
+    {
+      "id": "zozo-attieke",
+      "nom": "Attiéké",
+      "type": "plat",
+      "prix": "Sur demande",
+      "description": "Attieke poisson ou poulet."
+    },
+    {
+      "id": "zozo-poulet",
+      "nom": "Poulet Braisé",
+      "type": "plat",
+      "prix": "Sur demande",
+      "description": "Poulet braise aux epices."
+    },
+    {
+      "id": "zozo-alloco",
+      "nom": "Alloco",
+      "type": "plat",
+      "prix": "Sur demande",
+      "description": "Banane plantain frite."
+    },
+    {
+      "id": "zozo-jus",
+      "nom": "Jus Naturels",
+      "type": "boisson",
+      "prix": "Sur demande",
+      "description": "Jus frais."
+    }
+  ]
+}
