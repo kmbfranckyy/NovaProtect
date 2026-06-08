@@ -1,0 +1,94 @@
+{
+  "id": "drink-express",
+  "nom": "Drink Express",
+  "categorie": "livraison-boissons",
+  "plan": "premium",
+  "ville": "Casablanca",
+  "description": "Livraison de boissons 24h/24, 7j/7. Service rapide et fiable sur Casablanca.",
+  "whatsapp": "https://wa.me/33635107150",
+  "photo": "drink-express.jpg",
+  "badges": [
+    "🕐 24h/24 - 7j/7",
+    "🚚 Livraison rapide",
+    "🍾 Alcoolisé & Non alcoolisé"
+  ],
+  "produits": [
+    {
+      "id": "de-eau",
+      "nom": "Eaux minérales",
+      "type": "produit",
+      "prix": "Sur demande",
+      "description": "Eaux plates et gazeuses."
+    },
+    {
+      "id": "de-sodas",
+      "nom": "Sodas",
+      "type": "produit",
+      "prix": "Sur demande",
+      "description": "Toutes marques disponibles."
+    },
+    {
+      "id": "de-jus",
+      "nom": "Jus naturels",
+      "type": "produit",
+      "prix": "Sur demande",
+      "description": "Jus de fruits frais."
+    },
+    {
+      "id": "de-energie",
+      "nom": "Boissons énergétiques",
+      "type": "produit",
+      "prix": "Sur demande",
+      "description": "Red Bull, Monster et plus."
+    },
+    {
+      "id": "de-biere",
+      "nom": "Bières",
+      "type": "produit",
+      "prix": "Sur demande",
+      "description": "Bières locales et importées."
+    },
+    {
+      "id": "de-vin",
+      "nom": "Vins",
+      "type": "produit",
+      "prix": "Sur demande",
+      "description": "Vins rouges, blancs et rosés."
+    },
+    {
+      "id": "de-champagne",
+      "nom": "Champagnes",
+      "type": "produit",
+      "prix": "Sur demande",
+      "description": "Champagnes et mousseux."
+    },
+    {
+      "id": "de-spiritueux",
+      "nom": "Spiritueux",
+      "type": "produit",
+      "prix": "Sur demande",
+      "description": "Whisky, vodka, rhum et plus."
+    },
+    {
+      "id": "de-pack-soiree",
+      "nom": "Pack Soirée",
+      "type": "formule",
+      "prix": "Sur devis",
+      "description": "Formule complete pour vos soirees."
+    },
+    {
+      "id": "de-pack-anniversaire",
+      "nom": "Pack Anniversaire",
+      "type": "formule",
+      "prix": "Sur devis",
+      "description": "Pack special anniversaire."
+    },
+    {
+      "id": "de-pack-entreprise",
+      "nom": "Pack Entreprise",
+      "type": "formule",
+      "prix": "Sur devis",
+      "description": "Commandes professionnelles et evenements."
+    }
+  ]
+}
