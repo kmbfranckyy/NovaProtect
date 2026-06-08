@@ -1,0 +1,38 @@
+{
+  "id": "sarr-iphone",
+  "nom": "Sarr iPhone",
+  "categorie": "smartphones",
+  "plan": "smart",
+  "ville": "Casablanca",
+  "description": "Vente et services autour des iPhone et smartphones. Medina, Casablanca.",
+  "whatsapp": "https://wa.me/212656973616",
+  "photo": "sarr-iphone.jpg",
+  "badges": [
+    "📱 iPhone",
+    "🔧 Réparation",
+    "✅ Vérifié Nova"
+  ],
+  "produits": [
+    {
+      "id": "sarr-iphone-prod",
+      "nom": "iPhone",
+      "type": "produit",
+      "prix": "Sur demande",
+      "description": "iPhone neufs et occasions verifies."
+    },
+    {
+      "id": "sarr-smartphone",
+      "nom": "Smartphones",
+      "type": "produit",
+      "prix": "Sur demande",
+      "description": "Smartphones toutes marques."
+    },
+    {
+      "id": "sarr-reparation",
+      "nom": "Réparation iPhone",
+      "type": "service",
+      "prix": "Sur diagnostic",
+      "description": "Reparation ecran, batterie et diagnostic iPhone."
+    }
+  ]
+}
