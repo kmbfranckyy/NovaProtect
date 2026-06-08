@@ -1,0 +1,64 @@
+{
+  "id": "afro-market-select",
+  "nom": "Afro Market Select",
+  "categorie": "marche-exotique",
+  "plan": "smart",
+  "ville": "Casablanca",
+  "description": "Le meilleur de l'Afrique chez vous. Tubercules, fruits exotiques, epices, huiles naturelles.",
+  "whatsapp": "https://wa.me/33635107150",
+  "photo": "afro-market.jpg",
+  "badges": [
+    "🌿 100% Naturel",
+    "🚚 Livraison rapide",
+    "⭐ Qualité Premium"
+  ],
+  "produits": [
+    {
+      "id": "manioc",
+      "nom": "Manioc",
+      "type": "produit",
+      "prix": "Selon arrivage",
+      "description": "Produit exotique selectionne.",
+      "photo": "afro-manioc.jpg"
+    },
+    {
+      "id": "savon-noir",
+      "nom": "Savon Noir",
+      "type": "produit",
+      "prix": "Selon format",
+      "description": "Produit naturel de soin."
+    },
+    {
+      "id": "huile-naturelle",
+      "nom": "Huiles Naturelles",
+      "type": "produit",
+      "prix": "Selon format",
+      "description": "Huiles specialisees pour soin et cuisine."
+    },
+    {
+      "id": "afro-fruits",
+      "nom": "Fruits Exotiques",
+      "type": "produit",
+      "prix": "Selon arrivage",
+      "description": "Mangue, ananas, banane plantain, noix de coco."
+    },
+    {
+      "id": "afro-epices",
+      "nom": "Épices & Condiments",
+      "type": "produit",
+      "prix": "Selon format",
+      "description": "Epices africaines et assaisonnements."
+    },
+    {
+      "id": "afro-tubercules",
+      "nom": "Tubercules",
+      "type": "produit",
+      "prix": "Selon arrivage",
+      "description": "Manioc, igname, patate douce."
+    }
+  ],
+  "gallery": [
+    "afro-market.jpg",
+    "afro-manioc.jpg"
+  ]
+}
