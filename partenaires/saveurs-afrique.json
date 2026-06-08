@@ -1,0 +1,74 @@
+{
+  "id": "saveurs-afrique",
+  "nom": "Saveurs d'Afrique Casablanca",
+  "categorie": "restauration-africaine",
+  "plan": "premium",
+  "ville": "Casablanca",
+  "description": "Specialites africaines en livraison sur Casablanca. Attieke, Thiebboudiene, Poulet Braise et plus.",
+  "whatsapp": "https://wa.me/33635107150",
+  "photo": "saveurs-afrique-promo.jpg",
+  "promo": "🔥 Promo — Plat à 70 MAD",
+  "badges": [
+    "🚚 Livraison Casablanca",
+    "🥡 Emporter",
+    "📅 Réservation possible"
+  ],
+  "produits": [
+    {
+      "id": "sa-attieke-poisson",
+      "nom": "Attiéké Poisson",
+      "type": "plat",
+      "prix": "70 MAD",
+      "description": "Attieke accompagne de poisson frais grille."
+    },
+    {
+      "id": "sa-attieke-poulet",
+      "nom": "Attiéké Poulet",
+      "type": "plat",
+      "prix": "70 MAD",
+      "description": "Attieke accompagne de poulet savoureux."
+    },
+    {
+      "id": "sa-thieb-poisson",
+      "nom": "Thiéboudiène Poisson",
+      "type": "plat",
+      "prix": "70 MAD",
+      "description": "Riz au poisson senegalais traditionnel."
+    },
+    {
+      "id": "sa-thieb-poulet",
+      "nom": "Thiéboudiène Poulet",
+      "type": "plat",
+      "prix": "70 MAD",
+      "description": "Riz au poulet senegalais."
+    },
+    {
+      "id": "sa-poulet-braise",
+      "nom": "Poulet Braisé",
+      "type": "plat",
+      "prix": "70 MAD",
+      "description": "Poulet braise aux epices africaines."
+    },
+    {
+      "id": "sa-alloco",
+      "nom": "Alloco",
+      "type": "plat",
+      "prix": "Sur demande",
+      "description": "Banane plantain frite."
+    },
+    {
+      "id": "sa-riz-gras",
+      "nom": "Riz Gras",
+      "type": "plat",
+      "prix": "70 MAD",
+      "description": "Riz gras cuisine aux epices africaines."
+    },
+    {
+      "id": "sa-jus",
+      "nom": "Jus Naturels",
+      "type": "boisson",
+      "prix": "Sur demande",
+      "description": "Jus de fruits naturels et frais."
+    }
+  ]
+}
