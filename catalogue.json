@@ -1,0 +1,244 @@
+[
+  {
+    "id": "chez-aziz",
+    "nom": "Chez Aziz",
+    "entreprise": "Chez Aziz",
+    "categorie": "telephones",
+    "categorie_label": "Telephones",
+    "plan": "premium",
+    "ville": "Casablanca",
+    "image": "chez-aziz.jpg",
+    "description": "Smartphones neufs et reconditionnes, accessoires et reparation rapide. Partenaire verifie Nova Protect.",
+    "contact": "https://wa.me/33635107150?text=Bonjour%20Chez%20Aziz%2C%20je%20viens%20de%20NOVAprotect.",
+    "badges": ["Verifie Nova", "Livraison possible"],
+    "note": 4.8,
+    "avis": 124,
+    "produits": [
+      {"nom": "iPhone reconditionne", "prix": "1500 MAD", "desc": "iPhone 11/12 reconditionne grade A"},
+      {"nom": "Samsung Galaxy", "prix": "900 MAD", "desc": "Modeles recents disponibles en stock"},
+      {"nom": "Accessoires", "prix": "dès 30 MAD", "desc": "Coques, verres, chargeurs certifies"}
+    ]
+  },
+  {
+    "id": "nova-mobile-center",
+    "nom": "Nova Mobile Center",
+    "entreprise": "Nova Mobile Center",
+    "categorie": "telephones",
+    "categorie_label": "Telephones",
+    "plan": "premium",
+    "ville": "Casablanca",
+    "image": "nova-mobile-center.jpg",
+    "description": "Centre officiel Nova Mobile. Large selection de smartphones toutes marques, reparation express et garantie.",
+    "contact": "https://wa.me/33635107150?text=Bonjour%20Nova%20Mobile%20Center%2C%20je%20viens%20de%20NOVAprotect.",
+    "badges": ["Verifie Nova", "Garantie", "Reparation express"],
+    "note": 4.9,
+    "avis": 210,
+    "produits": [
+      {"nom": "iPhone 14 / 15", "prix": "3500 MAD", "desc": "Neufs et reconditionnes, debloque tous operateurs"},
+      {"nom": "Samsung S-series", "prix": "2800 MAD", "desc": "Derniers modeles disponibles"},
+      {"nom": "Reparation ecran", "prix": "200 MAD", "desc": "Remplacement ecran toutes marques"}
+    ]
+  },
+  {
+    "id": "sarr-iphone",
+    "nom": "Sarr iPhone",
+    "entreprise": "Sarr iPhone",
+    "categorie": "telephones",
+    "categorie_label": "Telephones",
+    "plan": "smart",
+    "ville": "Casablanca",
+    "image": "sarr-iphone.jpg",
+    "description": "Specialiste iPhone reconditionne et accessoires Apple. Prix competitifs, produits testes et garantis.",
+    "contact": "https://wa.me/33635107150?text=Bonjour%20Sarr%20iPhone%2C%20je%20viens%20de%20NOVAprotect.",
+    "badges": ["Verifie Nova", "Specialiste Apple"],
+    "note": 4.7,
+    "avis": 89,
+    "produits": [
+      {"nom": "iPhone 12", "prix": "1200 MAD", "desc": "Reconditionne grade A, batterie 85%+"},
+      {"nom": "iPhone 13", "prix": "1800 MAD", "desc": "Reconditionne grade A+"},
+      {"nom": "AirPods", "prix": "350 MAD", "desc": "Compatibles tous iPhones"}
+    ]
+  },
+  {
+    "id": "dr-ink-tattoo",
+    "nom": "Dr Ink Tattoo",
+    "entreprise": "Dr Ink Tattoo Studio",
+    "categorie": "tatouage",
+    "categorie_label": "Salon de tatouage",
+    "plan": "premium",
+    "ville": "Casablanca",
+    "image": "dr-ink-tattoo.jpg",
+    "description": "Studio de tatouage haut de gamme verifie Nova Protect. Realisme, geometrique, tribal et lettrage. Hygiene certifiee, materiel sterile a usage unique.",
+    "contact": "https://wa.me/33635107150?text=Bonjour%20Dr%20Ink%20Tattoo%2C%20je%20viens%20de%20NOVAprotect.",
+    "badges": ["Verifie Nova", "Hygiene certifiee", "Materiel sterile"],
+    "note": 4.9,
+    "avis": 312,
+    "galerie": ["dr-ink-tattoo.jpg", "dr-ink-tattoo-2.jpg"],
+    "produits": [
+      {"nom": "Petit tatouage", "prix": "dès 150 MAD", "desc": "Motifs minimalistes, lettrages, symboles"},
+      {"nom": "Tatouage moyen", "prix": "dès 400 MAD", "desc": "Realisme, geometrique, mandala"},
+      {"nom": "Grand tatouage", "prix": "sur devis", "desc": "Full sleeve, dos complet, projet sur mesure"}
+    ]
+  },
+  {
+    "id": "saveurs-afrique",
+    "nom": "Saveurs d Afrique",
+    "entreprise": "Saveurs d Afrique",
+    "categorie": "restauration-africaine",
+    "categorie_label": "Restauration",
+    "plan": "premium",
+    "ville": "Casablanca",
+    "image": "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=700&q=80&fit=crop",
+    "description": "Thiebboudiene, Attieke, Poulet Braise — les meilleures saveurs d'Afrique livrees sur Casablanca. Promo speciale 70 MAD.",
+    "contact": "https://wa.me/33635107150?text=Bonjour%20Saveurs%20d'Afrique%2C%20je%20viens%20de%20NOVAprotect%20et%20je%20souhaite%20commander%20le%20plat%20a%2070%20MAD.",
+    "badges": ["Verifie Nova", "Livraison Casablanca", "Promo 70 MAD"],
+    "note": 4.8,
+    "avis": 178,
+    "promo": "Plat complet a 70 MAD",
+    "produits": [
+      {"nom": "Thiebboudiene", "prix": "70 MAD", "desc": "Riz au poisson senegalais, plat complet"},
+      {"nom": "Attieke poulet", "prix": "65 MAD", "desc": "Attieke ivoirien avec poulet braise"},
+      {"nom": "Yassa poulet", "prix": "70 MAD", "desc": "Poulet yassa senegalais avec riz"}
+    ]
+  },
+  {
+    "id": "chez-zozo",
+    "nom": "Chez Zozo",
+    "entreprise": "Restaurant Chez Zozo",
+    "categorie": "restauration-africaine",
+    "categorie_label": "Restauration",
+    "plan": "premium",
+    "ville": "Casablanca",
+    "image": "chez-zozo-promo.jpg",
+    "description": "Specialites senegalaises et ivoiriennes authentiques. Sejt, Sell, Neekh — la cuisine africaine comme a la maison. Livraison negociee.",
+    "contact": "https://wa.me/33635107150?text=Bonjour%20Chez%20Zozo%2C%20je%20viens%20de%20NOVAprotect%20et%20je%20souhaite%20commander.",
+    "badges": ["Verifie Nova", "Cuisine africaine", "Livraison"],
+    "note": 4.7,
+    "avis": 95,
+    "produits": [
+      {"nom": "Sejt", "prix": "sur commande", "desc": "Plat traditionnel senegalais"},
+      {"nom": "Sell", "prix": "sur commande", "desc": "Specialite de la maison"},
+      {"nom": "Neekh", "prix": "sur commande", "desc": "Plat ivoirien authentique"}
+    ]
+  },
+  {
+    "id": "drink-express",
+    "nom": "Drink Express",
+    "entreprise": "Drink Express Casablanca",
+    "categorie": "livraison-boissons",
+    "categorie_label": "Boissons",
+    "plan": "premium",
+    "ville": "Casablanca",
+    "image": "drink-express.jpg",
+    "description": "Livraison de boissons 24h/24 7j/7 sur Casablanca. Eaux, sodas, jus, bieres, vins, champagnes — livraison rapide a toute heure.",
+    "contact": "https://wa.me/33635107150?text=Bonjour%20Drink%20Express%2C%20je%20viens%20de%20NOVAprotect%20et%20je%20souhaite%20commander.",
+    "badges": ["Verifie Nova", "24h/24", "7j/7", "Livraison rapide"],
+    "note": 4.6,
+    "avis": 203,
+    "produits": [
+      {"nom": "Pack boissons", "prix": "dès 50 MAD", "desc": "Eaux, sodas, jus — livraison immediate"},
+      {"nom": "Bieres & vins", "prix": "dès 80 MAD", "desc": "Selection complete livree chez vous"},
+      {"nom": "Champagnes", "prix": "sur demande", "desc": "Pour vos evenements speciaux"}
+    ]
+  },
+  {
+    "id": "marche-exotique",
+    "nom": "Marche Exotique Nova",
+    "entreprise": "Marche Exotique Nova",
+    "categorie": "marche-exotique",
+    "categorie_label": "Marche exotique",
+    "plan": "smart",
+    "ville": "Casablanca",
+    "image": "https://images.unsplash.com/photo-1542838132-92c53300491e?w=700&q=80&fit=crop",
+    "description": "Banane plantain, manioc frais, igname, huiles vegetales pures, savon noir authentique et epices africaines. Produits 100% naturels, livraison possible.",
+    "contact": "https://wa.me/33635107150?text=Bonjour%20Marche%20Exotique%2C%20je%20viens%20de%20NOVAprotect.",
+    "badges": ["Verifie Nova", "Produits naturels", "Livraison"],
+    "note": 4.5,
+    "avis": 67,
+    "produits": [
+      {"nom": "Banane plantain", "prix": "dès 20 MAD", "desc": "Regimes frais livres a domicile"},
+      {"nom": "Manioc & igname", "prix": "dès 25 MAD", "desc": "Tubercules frais importes"},
+      {"nom": "Savon noir & huiles", "prix": "dès 40 MAD", "desc": "Savon noir authentique, huile de palme, huile de coco"}
+    ]
+  },
+  {
+    "id": "bijoux-nova",
+    "nom": "Bijoux Nova",
+    "entreprise": "Bijoux Nova",
+    "categorie": "bijouterie",
+    "categorie_label": "Bijouterie",
+    "plan": "smart",
+    "ville": "Casablanca",
+    "image": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=700&q=80&fit=crop",
+    "description": "Bijoux en plaque or et argent, colliers, bracelets, bagues et boucles d'oreilles. Creations sur commande, envoi rapide.",
+    "contact": "https://wa.me/33635107150?text=Bonjour%20Bijoux%20Nova%2C%20je%20viens%20de%20NOVAprotect.",
+    "badges": ["Verifie Nova", "Sur commande"],
+    "note": 4.6,
+    "avis": 54,
+    "produits": [
+      {"nom": "Colliers", "prix": "dès 80 MAD", "desc": "Plaque or, argent, acier inox"},
+      {"nom": "Bracelets", "prix": "dès 60 MAD", "desc": "Tailles sur mesure disponibles"},
+      {"nom": "Bagues", "prix": "dès 70 MAD", "desc": "Toutes tailles, personnalisables"}
+    ]
+  },
+  {
+    "id": "nova-travel",
+    "nom": "Nova Travel",
+    "entreprise": "Nova Travel Agency",
+    "categorie": "voyage",
+    "categorie_label": "Agence de voyage",
+    "plan": "smart",
+    "ville": "Casablanca",
+    "image": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=700&q=80&fit=crop",
+    "description": "Billets d'avion, sejours tout compris, visa et transferts. Destinations Afrique, Europe, Amerique. Devis gratuit sous 24h.",
+    "contact": "https://wa.me/33635107150?text=Bonjour%20Nova%20Travel%2C%20je%20viens%20de%20NOVAprotect%20et%20je%20souhaite%20un%20devis.",
+    "badges": ["Verifie Nova", "Devis gratuit", "Visa inclus"],
+    "note": 4.7,
+    "avis": 112,
+    "produits": [
+      {"nom": "Billet avion", "prix": "dès 2500 MAD", "desc": "Destinations Afrique, Europe, Amerique"},
+      {"nom": "Sejour tout compris", "prix": "sur devis", "desc": "Hotel + vol + transfert"},
+      {"nom": "Assistance visa", "prix": "sur devis", "desc": "Accompagnement complet visa Schengen et autres"}
+    ]
+  },
+  {
+    "id": "cam-sept",
+    "nom": "Cam Sept",
+    "entreprise": "Cam Sept Audiovisuel",
+    "categorie": "audiovisuel",
+    "categorie_label": "Audiovisuel",
+    "plan": "premium",
+    "ville": "Casablanca",
+    "image": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=700&q=80&fit=crop",
+    "description": "Cameras, objectifs, stabilisateurs et materiel audiovisuel professionnel. Location et vente. Partenaire verifie Nova Protect.",
+    "contact": "https://wa.me/33635107150?text=Bonjour%20Cam%20Sept%2C%20je%20viens%20de%20NOVAprotect.",
+    "badges": ["Verifie Nova", "Location", "Materiel pro"],
+    "note": 4.8,
+    "avis": 76,
+    "produits": [
+      {"nom": "Camera Sony/Canon", "prix": "sur devis", "desc": "Location journaliere ou hebdomadaire"},
+      {"nom": "Stabilisateur DJI", "prix": "sur devis", "desc": "Gimbals et drones disponibles"},
+      {"nom": "Eclairage studio", "prix": "sur devis", "desc": "Pack complet pour tournage"}
+    ]
+  },
+  {
+    "id": "floral-cosmetique",
+    "nom": "Floral Cosmetique",
+    "entreprise": "Floral Cosmetique",
+    "categorie": "cosmetique",
+    "categorie_label": "Cosmetique",
+    "plan": "basic",
+    "ville": "Casablanca",
+    "image": "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=700&q=80&fit=crop",
+    "description": "Cosmetiques naturels et produits de beaute. Soins visage, corps et cheveux. Marques selectionnees et verifiees.",
+    "contact": "https://wa.me/33635107150?text=Bonjour%20Floral%20Cosmetique%2C%20je%20viens%20de%20NOVAprotect.",
+    "badges": ["Verifie Nova", "Produits naturels"],
+    "note": 4.4,
+    "avis": 43,
+    "produits": [
+      {"nom": "Soins visage", "prix": "dès 60 MAD", "desc": "Serums, hydratants, gommages naturels"},
+      {"nom": "Soins cheveux", "prix": "dès 45 MAD", "desc": "Huiles, masques et shampooings bio"},
+      {"nom": "Coffrets cadeaux", "prix": "dès 150 MAD", "desc": "Coffrets beaute personnalisables"}
+    ]
+  }
+]
