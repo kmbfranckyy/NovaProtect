@@ -1539,8 +1539,8 @@ section:not(.hero){padding:clamp(2rem,6vh,4.5rem) clamp(1rem,5vw,3.5rem)}
       <button class="mobile-cat-pill" onclick="mobileCatFilter(this,'telephones')"><i class="ti ti-device-mobile" aria-hidden="true"></i>Téléphones</button>
       <button class="mobile-cat-pill" onclick="mobileCatFilter(this,'reparation')"><i class="ti ti-tool" aria-hidden="true"></i>Réparation</button>
       <button class="mobile-cat-pill" onclick="mobileCatFilter(this,'tatouage')"><i class="ti ti-needle-thread" aria-hidden="true"></i>Tatouage</button>
-      <button class="mobile-cat-pill" onclick="mobileCatFilter(this,'restauration-africaine')"><i class="ti ti-bowl" aria-hidden="true"></i>Restauration</button>
-      <button class="mobile-cat-pill" onclick="mobileCatFilter(this,'livraison-boissons')"><i class="ti ti-bottle" aria-hidden="true"></i>Boissons</button>
+      <button class="mobile-cat-pill" onclick="mobileCatFilter(this,'restaurants')"><i class="ti ti-bowl" aria-hidden="true"></i>Restauration</button>
+      <button class="mobile-cat-pill" onclick="mobileCatFilter(this,'restaurants')"><i class="ti ti-bottle" aria-hidden="true"></i>Boissons</button>
       <button class="mobile-cat-pill" onclick="mobileCatFilter(this,'audiovisuel')"><i class="ti ti-camera" aria-hidden="true"></i>Audiovisuel</button>
       <button class="mobile-cat-pill" onclick="mobileCatFilter(this,'cosmetique')"><i class="ti ti-sparkles" aria-hidden="true"></i>Cosmétique</button>
       <button class="mobile-cat-pill" onclick="mobileCatFilter(this,'voyage')"><i class="ti ti-plane" aria-hidden="true"></i>Voyage</button>
@@ -1822,7 +1822,6 @@ const NOVA_DATA = {
 ,
     { id: "smartphones", nom: "Smartphones & Accessoires", icon: "📱", description: "Vente de smartphones, accessoires et solutions mobiles." },
     { id: "cosmetique", nom: "Cosmetique & Beaute", icon: "💄", description: "Produits cosmetiques, soins de beaute et parfumerie." },
-    { id: "livraison-boissons", nom: "Boissons 24h/24", icon: "🥤", description: "Livraison de boissons 24h/24, 7j/7. Sodas, jus, bières, vins, champagnes et formules événements." },
     { id: "billetterie", nom: "Billetterie", icon: "🎫", description: "Shows, concerts et evenements a venir. Reservation de billets en ligne." }
   ],
   entreprises: [
@@ -1843,9 +1842,9 @@ const NOVA_DATA = {
     { id: "sarr-iphone", note: 4.6, avis: 27, nom: "Sarr iPhone", categorie: "smartphones", plan: "smart", ville: "Casablanca", description: "Vente et services autour des iPhone et smartphones.", whatsapp: "https://wa.me/33635107150", socials: "@sarriphone", adresse: "Medina, Casablanca", photo: "sarr-iphone.jpg", gallery: ["sarr-iphone.jpg"], catalogue: ["sarr-iphone-prod", "sarr-smartphone", "sarr-reparation"] },
     { id: "fajri-iphone", note: 4.2, avis: 11, nom: "Fajri iPhone", categorie: "smartphones", plan: "basic", ville: "Casablanca", description: "Services et produits lies aux smartphones.", whatsapp: "https://wa.me/33635107150", socials: "@fajriiphone", adresse: "Casablanca", catalogue: ["fajri-smartphone", "fajri-reparation", "fajri-accessoires"] },
     { id: "floral-cosmetique", note: 4.5, avis: 19, nom: "Floral Cosmetique", categorie: "cosmetique", plan: "basic", ville: "Casablanca", description: "Vente de produits cosmetiques et de beaute.", whatsapp: "https://wa.me/33635107150", socials: "@floralcosmetique", adresse: "Casablanca", catalogue: ["floral-cosmetiques", "floral-soins"] },
-    { id: "saveurs-afrique", note: 4.8, avis: 72, nom: "Saveurs d'Afrique Casablanca", categorie: "restauration-africaine", plan: "premium", ville: "Casablanca", description: "Specialites africaines en livraison sur Casablanca. Attieke, Thiebboudiene, Poulet Braise et plus.", whatsapp: "https://wa.me/33635107150", socials: "@saveurs_afrique_casa", photo: "saveurs-afrique.jpg", promo: "🔥 Promo — Plat à 70 MAD", adresse: "Casablanca", badges: ["🚚 Livraison Casablanca", "🥡 Emporter", "📅 Reservation possible"], catalogue: ["sa-attieke-poisson", "sa-attieke-poulet", "sa-thieb-poisson", "sa-thieb-poulet", "sa-poulet-braise", "sa-alloco", "sa-riz-gras", "sa-jus"] },
-    { id: "chez-zozo", note: 4.7, avis: 38, nom: "Chez Zozo", categorie: "restauration-africaine", plan: "premium", ville: "Casablanca", description: "Specialites senegalaises et ivoiriennes. Sejt, Sell, Neekh. Livraison negociee.", whatsapp: "https://wa.me/33635107150", socials: "@chezzozo", photo: "chez-zozo-promo.jpg", adresse: "Casablanca", badges: ["🚚 Livraison negociee", "🥡 Emporter", "⭐ Sejt - Sell - Neekh"], catalogue: ["zozo-thieb", "zozo-attieke", "zozo-poulet", "zozo-alloco", "zozo-jus"] },
-    { id: "drink-express", note: 4.9, avis: 94, nom: "Drink Express", categorie: "livraison-boissons", plan: "premium", ville: "Casablanca", description: "Commandez vos boissons 24h/24, 7j/7. Livraison rapide et fiable sur Casablanca.", whatsapp: "https://wa.me/33635107150", socials: "@drinkexpress", photo: "drink-express.jpg", gallery: ["drink-express.jpg", "drink-express-2.jpg"], adresse: "Casablanca — Livraison 24h/24", promo: "⏰ Disponible 24h/24 – 7j/7", badges: ["🚀 Livraison rapide", "🌙 Service 24h/24", "📦 Packs disponibles"], catalogue: ["de-eau", "de-sodas", "de-jus", "de-energie", "de-the-glace", "de-lait", "de-bieres", "de-vins", "de-champagne", "de-spiritueux", "de-cocktails", "de-pack-soiree", "de-pack-anniversaire", "de-pack-entreprise", "de-pack-couple", "de-pack-evenement"] },
+    { id: "saveurs-afrique", note: 4.8, avis: 72, nom: "Saveurs d'Afrique Casablanca", categorie: "restaurants", plan: "premium", ville: "Casablanca", description: "Specialites africaines en livraison sur Casablanca. Attieke, Thiebboudiene, Poulet Braise et plus.", whatsapp: "https://wa.me/33635107150", socials: "@saveurs_afrique_casa", photo: "saveurs-afrique.jpg", promo: "🔥 Promo — Plat à 70 MAD", adresse: "Casablanca", badges: ["🚚 Livraison Casablanca", "🥡 Emporter", "📅 Reservation possible"], catalogue: ["sa-attieke-poisson", "sa-attieke-poulet", "sa-thieb-poisson", "sa-thieb-poulet", "sa-poulet-braise", "sa-alloco", "sa-riz-gras", "sa-jus"] },
+    { id: "chez-zozo", note: 4.7, avis: 38, nom: "Chez Zozo", categorie: "restaurants", plan: "premium", ville: "Casablanca", description: "Specialites senegalaises et ivoiriennes. Sejt, Sell, Neekh. Livraison negociee.", whatsapp: "https://wa.me/33635107150", socials: "@chezzozo", photo: "chez-zozo-promo.jpg", adresse: "Casablanca", badges: ["🚚 Livraison negociee", "🥡 Emporter", "⭐ Sejt - Sell - Neekh"], catalogue: ["zozo-thieb", "zozo-attieke", "zozo-poulet", "zozo-alloco", "zozo-jus"] },
+    { id: "drink-express", note: 4.9, avis: 94, nom: "Drink Express", categorie: "restaurants", plan: "premium", ville: "Casablanca", description: "Commandez vos boissons 24h/24, 7j/7. Livraison rapide et fiable sur Casablanca.", whatsapp: "https://wa.me/33635107150", socials: "@drinkexpress", photo: "drink-express.jpg", gallery: ["drink-express.jpg", "drink-express-2.jpg"], adresse: "Casablanca — Livraison 24h/24", promo: "⏰ Disponible 24h/24 – 7j/7", badges: ["🚀 Livraison rapide", "🌙 Service 24h/24", "📦 Packs disponibles"], catalogue: ["de-eau", "de-sodas", "de-jus", "de-energie", "de-the-glace", "de-lait", "de-bieres", "de-vins", "de-champagne", "de-spiritueux", "de-cocktails", "de-pack-soiree", "de-pack-anniversaire", "de-pack-entreprise", "de-pack-couple", "de-pack-evenement"] },
     { id: "saveur-fiable", note: 4.4, avis: 16, nom: "Saveur Fiable", categorie: "restaurants", plan: "smart", ville: "Casablanca", description: "Restaurant partenaire verifie pour commandes et reservations locales.", whatsapp: "https://wa.me/33635107150", socials: "@novaprotectoff", catalogue: ["menu-midi", "commande-famille"] },
     { id: "yassine-store", note: null, avis: null, nom: "Yassine Store", categorie: "reparation", plan: "smart", ville: "Casablanca", description: "Reparation informatique et mobile a prix abordable. Ordinateurs et telephones neufs ou reconditionnes selon disponibilite. Diagnostic rapide et devis clair avant intervention.", whatsapp: "https://wa.me/33635107150", socials: "@novaprotectoff", photo: "yassine-store.jpg", gallery: ["yassine-store-1.jpg", "yassine-store-2.jpg", "yassine-store-3.jpg", "yassine-store-4.jpg", "yassine-store-5.jpg"], badges: ["🔧 Reparation PC & mobile", "💰 Prix abordables", "🖥️ Ordinateurs", "📱 Telephones"], catalogue: ["ys-reparation-pc", "ys-reparation-mobile", "ys-ordinateurs", "ys-telephones", "ys-diagnostic"] },
     { id: "nova-billetterie", note: null, avis: null, nom: "Concert Boy Kls", categorie: "billetterie", plan: "premium", ville: "Casablanca", description: "Reservez votre billet pour le concert de Boy Kls. Places limitees, paiement securise via WhatsApp.", whatsapp: "https://wa.me/212773170412", socials: "@novaprotectoff", photo: "event-1.jpg", date_debut: "2026-07-10", date_fin: "2026-07-10", badges: ["🎫 Billet unique 200 DH", "📅 10 juillet 2026"], catalogue: ["billet-concert-boykls"] }
@@ -2874,8 +2873,8 @@ const SERVICES_PAR_CATEGORIE = {
   'audiovisuel':           ['📷 Acheter un appareil photo','🎥 Matériel vidéo','🎙 Micro & son','💡 Éclairage studio'],
   'smartphones':           ['📱 Acheter un iPhone','🔓 Téléphone débloqué','🔋 Remplacement batterie','💰 Connaître les prix'],
   'cosmetique':            ['💄 Produits disponibles','🌿 Soins naturels','🎁 Coffret cadeau','💰 Connaître les tarifs'],
-  'restauration-africaine':['🍽 Passer une commande','📋 Voir le menu','🚚 Livraison à domicile','⏰ Horaires & dispo'],
-  'livraison-boissons':    ['🥤 Commander des boissons','🎉 Pack soirée','🍾 Champagne & alcool','⏰ Livraison urgente'],
+  'restaurants-africaine':['🍽 Passer une commande','📋 Voir le menu','🚚 Livraison à domicile','⏰ Horaires & dispo'],
+  'restaurants-livraison':    ['🥤 Commander des boissons','🎉 Pack soirée','🍾 Champagne & alcool','⏰ Livraison urgente'],
   'restaurants':           ['🍽 Commander un repas','📋 Voir le menu','🚚 Livraison','📅 Réservation'],
 };
 
@@ -3074,7 +3073,29 @@ function closeModal(event) {
 
 function sharePartner(nom, id) {
   const dedicatedPages = {
+    'chez-aziz': 'chez-aziz.html',
+    'nova-mobile-center': 'nova-mobile-center.html',
+    'protect-access-store': 'protect-access-store.html',
+    'fix-phone-plus': 'fix-phone-plus.html',
+    'nova-tattoo-studio': 'nova-tattoo-studio.html',
+    'beauty-nova-hair': 'beauty-nova-hair.html',
+    'afro-market-select': 'afro-market-select.html',
+    'anarouz-electronique': 'anarouz-electronique.html',
+    'bijoux-marjana': 'bijoux-marjana.html',
+    'bijoux-lumiere': 'bijoux-lumiere.html',
+    'nova-travel-agency': 'nova-travel-agency.html',
+    'lumi-deco-pro': 'lumi-deco-pro.html',
+    'cam-sept': 'cam-sept.html',
+    'dr-ink-tattoo': 'dr-ink-tattoo.html',
+    'sarr-iphone': 'sarr-iphone.html',
+    'fajri-iphone': 'fajri-iphone.html',
+    'floral-cosmetique': 'floral-cosmetique.html',
+    'saveurs-afrique': 'saveurs-afrique.html',
+    'chez-zozo': 'chez-zozo.html',
+    'drink-express': 'drink-express.html',
+    'saveur-fiable': 'saveur-fiable.html',
     'yassine-store': 'yassine-store.html',
+    'nova-billetterie': 'nova-billetterie.html',
     'nova-billetterie': 'concert-boykls.html'
   };
   const base = window.location.href.split('?')[0].replace(/index\.html$/, '');
